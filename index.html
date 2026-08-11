@@ -6,43 +6,33 @@
 
 <title>Wyatt's Bay Blades | Lawn Care & Landscaping</title>
 
-<meta name="description" content="Wyatt's Bay Blades provides professional lawn care, mowing, landscaping, lawn restoration, mulch, cleanups and property maintenance throughout Maryland's Eastern Shore.">
+<meta name="description" content="Wyatt's Bay Blades provides professional lawn care, mowing, landscaping, cleanups, mulch, gravel, lawn restoration and property maintenance throughout Maryland's Eastern Shore.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<!-- Leaflet -->
+<!-- Leaflet map -->
 <link
 rel="stylesheet"
 href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
 />
 
 <style>
-
-/* =========================================================
-   WYATT'S BAY BLADES
-   BRAND COLORS
-========================================================= */
-
 :root {
-    --navy: #071d3b;
-    --navy-light: #0d315e;
-    --blue: #1688e5;
-    --blue-light: #4db7ff;
+    --navy: #071d3a;
+    --navy2: #0d315b;
+    --blue: #0877c9;
+    --light-blue: #48a9ed;
+    --green: #4d8f38;
+    --light-green: #7fbd55;
     --white: #ffffff;
-    --off-white: #f5f8fb;
-    --text: #17212b;
-    --muted: #647383;
-    --border: #dce5ed;
-    --shadow: 0 15px 45px rgba(7, 29, 59, .12);
-    --radius: 18px;
+    --light: #f4f8fb;
+    --dark: #101820;
+    --gray: #657383;
+    --border: #dbe5ed;
+    --shadow: 0 15px 45px rgba(7,29,58,.14);
 }
-
-/* =========================================================
-   RESET
-========================================================= */
 
 * {
     margin: 0;
@@ -56,14 +46,9 @@ html {
 
 body {
     font-family: "Montserrat", Arial, sans-serif;
-    color: var(--text);
+    color: var(--dark);
     background: var(--white);
     line-height: 1.6;
-}
-
-img {
-    max-width: 100%;
-    display: block;
 }
 
 a {
@@ -71,67 +56,56 @@ a {
     color: inherit;
 }
 
-button,
-input,
-textarea,
-select {
-    font-family: inherit;
+img {
+    max-width: 100%;
+    display: block;
 }
 
 .container {
     width: min(1180px, calc(100% - 40px));
-    margin: 0 auto;
+    margin: auto;
 }
 
-/* =========================================================
+/* =========================
    TOP BAR
-========================================================= */
+========================= */
 
 .topbar {
     background: var(--navy);
     color: white;
+    padding: 9px 0;
     font-size: 13px;
-    font-weight: 600;
 }
 
 .topbar-inner {
-    min-height: 42px;
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
     gap: 20px;
 }
 
-.topbar-left {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.topbar-right {
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.topbar a {
+    font-weight: 700;
 }
 
 .topbar a:hover {
-    color: var(--blue-light);
+    color: var(--light-blue);
 }
 
-/* =========================================================
+/* =========================
    NAVIGATION
-========================================================= */
+========================= */
 
-.navbar {
+header {
     position: sticky;
     top: 0;
     z-index: 1000;
     background: rgba(255,255,255,.97);
     backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(7,29,59,.08);
+    border-bottom: 1px solid rgba(7,29,58,.1);
 }
 
-.nav-inner {
+.nav {
     min-height: 86px;
     display: flex;
     align-items: center;
@@ -139,66 +113,75 @@ select {
     gap: 30px;
 }
 
-.brand {
+.nav-logo {
     display: flex;
     align-items: center;
-    gap: 14px;
+    gap: 12px;
 }
 
-.brand-logo {
-    width: 72px;
-    height: 72px;
+.nav-logo img {
+    width: 82px;
+    height: 70px;
     object-fit: contain;
 }
 
-.brand-name {
-    font-size: 20px;
-    font-weight: 900;
-    letter-spacing: -.5px;
+.nav-brand {
     color: var(--navy);
+    font-weight: 900;
+    font-size: 18px;
+    line-height: 1.05;
 }
 
-.brand-tagline {
+.nav-brand span {
     display: block;
     color: var(--blue);
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 1.2px;
-    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    margin-top: 4px;
 }
 
 .nav-links {
     display: flex;
     align-items: center;
-    gap: 26px;
-    font-size: 13px;
+    gap: 25px;
+    font-size: 14px;
     font-weight: 700;
-}
-
-.nav-links a {
-    color: var(--navy);
-    transition: .2s ease;
 }
 
 .nav-links a:hover {
     color: var(--blue);
 }
 
-.nav-cta {
+.nav-call {
     background: var(--blue);
     color: white !important;
-    padding: 13px 19px;
-    border-radius: 10px;
-    box-shadow: 0 8px 20px rgba(22,136,229,.25);
+    padding: 12px 18px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(8,119,201,.25);
 }
 
-.nav-cta:hover {
+.nav-call:hover {
     background: var(--navy);
 }
 
-/* =========================================================
+@media(max-width: 850px) {
+    .nav-links a:not(.nav-call) {
+        display: none;
+    }
+
+    .nav {
+        min-height: 75px;
+    }
+
+    .nav-logo img {
+        width: 65px;
+        height: 58px;
+    }
+}
+
+/* =========================
    HERO
-========================================================= */
+========================= */
 
 .hero {
     min-height: 720px;
@@ -206,76 +189,80 @@ select {
     display: flex;
     align-items: center;
     overflow: hidden;
-
     background:
-        linear-gradient(
-            90deg,
-            rgba(4,20,42,.94) 0%,
-            rgba(4,20,42,.80) 38%,
-            rgba(4,20,42,.28) 75%,
-            rgba(4,20,42,.12) 100%
-        ),
-        url("https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=2000&q=85")
-        center/cover no-repeat;
+        linear-gradient(90deg, rgba(4,22,42,.93) 0%, rgba(4,22,42,.77) 43%, rgba(4,22,42,.32) 100%),
+        url("https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=2200&q=85")
+        center center / cover no-repeat;
 }
 
 .hero::after {
     content: "";
     position: absolute;
-    inset: auto 0 0 0;
-    height: 120px;
-    background: linear-gradient(transparent, rgba(255,255,255,.35));
-    pointer-events: none;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 90px;
+    background: linear-gradient(to top, white, transparent);
 }
 
 .hero-content {
     position: relative;
     z-index: 2;
-    max-width: 720px;
     color: white;
-    padding: 90px 0;
+    max-width: 720px;
+    padding: 90px 0 130px;
 }
 
 .hero-logo {
-    width: min(420px, 80vw);
-    margin-bottom: 28px;
-    filter: drop-shadow(0 12px 30px rgba(0,0,0,.3));
+    width: 260px;
+    max-height: 230px;
+    object-fit: contain;
+    object-position: left center;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 8px 20px rgba(0,0,0,.3));
 }
 
-.hero-kicker {
+.eyebrow {
     display: inline-flex;
     align-items: center;
-    gap: 10px;
-    background: rgba(22,136,229,.18);
-    border: 1px solid rgba(77,183,255,.4);
-    color: #dff3ff;
-    padding: 9px 14px;
-    border-radius: 50px;
-    font-size: 11px;
+    gap: 9px;
+    background: rgba(255,255,255,.12);
+    border: 1px solid rgba(255,255,255,.3);
+    padding: 8px 14px;
+    border-radius: 100px;
+    font-size: 12px;
     font-weight: 800;
+    letter-spacing: 1.3px;
     text-transform: uppercase;
-    letter-spacing: 1.4px;
-    margin-bottom: 20px;
+    margin-bottom: 18px;
+}
+
+.eyebrow::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: #77c64b;
+    border-radius: 50%;
+    box-shadow: 0 0 0 5px rgba(119,198,75,.15);
 }
 
 .hero h1 {
     font-size: clamp(42px, 6vw, 76px);
-    line-height: 1.02;
-    letter-spacing: -3px;
+    line-height: .98;
     font-weight: 900;
-    margin-bottom: 24px;
+    letter-spacing: -2.5px;
+    margin-bottom: 22px;
 }
 
 .hero h1 span {
-    color: var(--blue-light);
+    color: #67b9f0;
 }
 
 .hero p {
-    max-width: 650px;
-    font-size: 18px;
-    line-height: 1.75;
-    color: rgba(255,255,255,.88);
-    margin-bottom: 34px;
+    font-size: 19px;
+    max-width: 640px;
+    color: rgba(255,255,255,.91);
+    margin-bottom: 30px;
 }
 
 .hero-buttons {
@@ -286,221 +273,255 @@ select {
 
 .btn {
     display: inline-flex;
-    align-items: center;
     justify-content: center;
-    gap: 9px;
+    align-items: center;
     min-height: 52px;
     padding: 0 23px;
-    border-radius: 11px;
-    font-size: 13px;
+    border-radius: 8px;
     font-weight: 800;
+    font-size: 14px;
     transition: .2s ease;
 }
 
 .btn-primary {
     background: var(--blue);
     color: white;
-    box-shadow: 0 12px 30px rgba(22,136,229,.35);
+    box-shadow: 0 8px 25px rgba(0,0,0,.2);
 }
 
 .btn-primary:hover {
-    background: white;
-    color: var(--navy);
+    background: #0868ad;
     transform: translateY(-2px);
 }
 
-.btn-outline {
-    border: 1px solid rgba(255,255,255,.5);
-    color: white;
-    background: rgba(255,255,255,.08);
-}
-
-.btn-outline:hover {
+.btn-white {
     background: white;
     color: var(--navy);
 }
 
-/* =========================================================
-   TRUST STRIP
-========================================================= */
-
-.trust-strip {
-    position: relative;
-    z-index: 10;
-    margin-top: -42px;
+.btn-white:hover {
+    transform: translateY(-2px);
 }
 
-.trust-grid {
+@media(max-width:600px) {
+    .hero {
+        min-height: 680px;
+        background-position: 60% center;
+    }
+
+    .hero-content {
+        padding: 70px 0 120px;
+    }
+
+    .hero-logo {
+        width: 190px;
+    }
+
+    .hero h1 {
+        font-size: 43px;
+        letter-spacing: -1.5px;
+    }
+
+    .hero p {
+        font-size: 16px;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* =========================
+   TRUST STRIP
+========================= */
+
+.trust {
+    position: relative;
+    z-index: 5;
+    margin-top: -45px;
+}
+
+.trust-card {
     background: white;
-    border-radius: 18px;
+    border-radius: 16px;
     box-shadow: var(--shadow);
-    padding: 25px 30px;
+    padding: 24px 30px;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 .trust-item {
     display: flex;
     align-items: center;
-    gap: 13px;
+    gap: 14px;
 }
 
 .trust-icon {
-    width: 43px;
-    height: 43px;
-    border-radius: 12px;
+    width: 45px;
+    height: 45px;
     display: grid;
     place-items: center;
-    background: #e9f5ff;
+    border-radius: 50%;
+    background: #eaf6fd;
     color: var(--blue);
     font-size: 20px;
+    flex-shrink: 0;
 }
 
 .trust-item strong {
     display: block;
-    font-size: 13px;
-    color: var(--navy);
+    font-size: 14px;
 }
 
 .trust-item span {
     display: block;
-    color: var(--muted);
-    font-size: 11px;
+    font-size: 12px;
+    color: var(--gray);
 }
 
-/* =========================================================
-   SECTION BASICS
-========================================================= */
+@media(max-width:700px) {
+    .trust-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
 
 section {
-    padding: 100px 0;
+    padding: 95px 0;
 }
 
-.section-kicker {
+.section-heading {
+    max-width: 720px;
+    margin-bottom: 48px;
+}
+
+.section-label {
     color: var(--blue);
-    font-size: 11px;
+    font-size: 12px;
     font-weight: 900;
-    text-transform: uppercase;
     letter-spacing: 1.7px;
-    margin-bottom: 12px;
+    text-transform: uppercase;
+    margin-bottom: 9px;
 }
 
-.section-title {
+.section-heading h2 {
     color: var(--navy);
-    font-size: clamp(32px, 4vw, 52px);
-    line-height: 1.08;
-    letter-spacing: -1.8px;
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.05;
     font-weight: 900;
-    margin-bottom: 18px;
+    letter-spacing: -1px;
+    margin-bottom: 16px;
 }
 
-.section-text {
-    color: var(--muted);
-    max-width: 700px;
+.section-heading p {
+    color: var(--gray);
     font-size: 16px;
 }
 
-/* =========================================================
+/* =========================
    ABOUT
-========================================================= */
+========================= */
 
 .about {
-    background: var(--off-white);
+    background: white;
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: .9fr 1.1fr;
     gap: 70px;
     align-items: center;
 }
 
-.about-image {
+.about-logo-box {
+    min-height: 500px;
+    border-radius: 24px;
+    background:
+        radial-gradient(circle at 50% 40%, rgba(72,169,237,.28), transparent 35%),
+        linear-gradient(145deg, #061c37, #0c4778);
+    display: grid;
+    place-items: center;
+    padding: 45px;
+    overflow: hidden;
     position: relative;
 }
 
-.about-image-main {
-    border-radius: 22px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    min-height: 520px;
-
-    background:
-        linear-gradient(rgba(7,29,59,.05), rgba(7,29,59,.15)),
-        url("https://images.unsplash.com/photo-1558904541-efa843a96f01?auto=format&fit=crop&w=1200&q=85")
-        center/cover no-repeat;
-}
-
-.about-badge {
+.about-logo-box::before {
+    content: "";
     position: absolute;
-    right: -25px;
-    bottom: 30px;
-    background: var(--navy);
-    color: white;
-    border-radius: 16px;
-    padding: 22px;
-    width: 210px;
-    box-shadow: var(--shadow);
+    width: 420px;
+    height: 420px;
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 50%;
 }
 
-.about-badge strong {
-    display: block;
-    font-size: 27px;
-    color: var(--blue-light);
+.about-logo-box img {
+    width: min(100%, 360px);
+    position: relative;
+    z-index: 2;
+    filter: drop-shadow(0 15px 20px rgba(0,0,0,.3));
 }
 
-.about-badge span {
-    font-size: 11px;
-    color: rgba(255,255,255,.72);
-}
-
-.about-copy p {
-    color: var(--muted);
+.about-copy h3 {
+    color: var(--navy);
+    font-size: 30px;
+    line-height: 1.15;
     margin-bottom: 18px;
 }
 
-.about-list {
+.about-copy p {
+    color: var(--gray);
+    margin-bottom: 18px;
+}
+
+.check-list {
     list-style: none;
+    display: grid;
+    gap: 13px;
     margin: 25px 0 30px;
 }
 
-.about-list li {
+.check-list li {
     display: flex;
+    align-items: center;
     gap: 11px;
-    margin: 13px 0;
-    color: var(--navy);
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 700;
 }
 
-.about-list li::before {
-    content: "✓";
-    width: 21px;
-    height: 21px;
+.check {
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    background: #e8f5df;
+    color: var(--green);
     display: grid;
     place-items: center;
+    font-size: 12px;
     flex-shrink: 0;
-    background: #e7f5ff;
-    color: var(--blue);
-    border-radius: 50%;
-    font-size: 11px;
 }
 
-/* =========================================================
+@media(max-width:850px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-logo-box {
+        min-height: 350px;
+    }
+}
+
+/* =========================
    SERVICES
-========================================================= */
+========================= */
 
 .services {
-    background: white;
-}
-
-.services-heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: end;
-    gap: 30px;
-    margin-bottom: 45px;
+    background: var(--light);
 }
 
 .services-grid {
@@ -510,736 +531,475 @@ section {
 }
 
 .service-card {
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 30px;
     background: white;
-    transition: .25s ease;
+    padding: 30px;
+    border: 1px solid var(--border);
+    border-radius: 15px;
+    transition: .2s ease;
 }
 
 .service-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
     box-shadow: var(--shadow);
-    border-color: #b8ddf7;
+    border-color: rgba(8,119,201,.2);
 }
 
-.service-number {
-    font-size: 12px;
-    font-weight: 900;
+.service-icon {
+    width: 55px;
+    height: 55px;
+    display: grid;
+    place-items: center;
+    background: #eaf6fd;
+    border-radius: 12px;
     color: var(--blue);
-    margin-bottom: 24px;
+    font-size: 25px;
+    margin-bottom: 20px;
 }
 
 .service-card h3 {
-    font-size: 19px;
     color: var(--navy);
-    margin-bottom: 12px;
+    font-size: 19px;
+    margin-bottom: 9px;
 }
 
 .service-card p {
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.7;
-}
-
-/* =========================================================
-   RESTORATION FEATURE
-========================================================= */
-
-.restoration {
-    background: var(--navy);
-    color: white;
-    overflow: hidden;
-}
-
-.restoration-grid {
-    display: grid;
-    grid-template-columns: .9fr 1.1fr;
-    gap: 70px;
-    align-items: center;
-}
-
-.restoration-copy .section-title {
-    color: white;
-}
-
-.restoration-copy .section-text {
-    color: rgba(255,255,255,.7);
-}
-
-.process {
-    margin-top: 35px;
-}
-
-.process-step {
-    display: grid;
-    grid-template-columns: 45px 1fr;
-    gap: 17px;
-    margin-bottom: 23px;
-}
-
-.process-number {
-    width: 42px;
-    height: 42px;
-    border: 1px solid rgba(77,183,255,.45);
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
-    color: var(--blue-light);
-    font-weight: 900;
-}
-
-.process-step h4 {
-    margin-bottom: 3px;
+    color: var(--gray);
     font-size: 14px;
 }
 
-.process-step p {
-    color: rgba(255,255,255,.58);
-    font-size: 12px;
+@media(max-width:900px) {
+    .services-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
-.restoration-image {
-    min-height: 600px;
-    border-radius: 25px;
-    background:
-        linear-gradient(rgba(7,29,59,.05), rgba(7,29,59,.15)),
-        url("https://images.unsplash.com/photo-1621460248083-6271cc4437a2?auto=format&fit=crop&w=1200&q=85")
-        center/cover no-repeat;
-    box-shadow: 0 25px 70px rgba(0,0,0,.3);
+@media(max-width:600px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+    }
 }
 
-/* =========================================================
+/* =========================
    MAP
-========================================================= */
+========================= */
 
 .map-section {
-    background: var(--off-white);
-}
-
-.map-heading {
-    text-align: center;
-    margin-bottom: 40px;
-}
-
-.map-heading .section-text {
-    margin: 0 auto;
-}
-
-.map-wrapper {
     background: white;
-    padding: 12px;
-    border-radius: 22px;
-    box-shadow: var(--shadow);
 }
 
-#service-map {
-    height: 570px;
-    width: 100%;
-    border-radius: 15px;
-    overflow: hidden;
+.map-layout {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 25px;
+    align-items: stretch;
 }
 
-.map-info {
+.area-card {
+    background: var(--navy);
+    color: white;
+    border-radius: 18px;
+    padding: 34px;
+    min-height: 520px;
     display: flex;
-    justify-content: center;
-    gap: 30px;
-    margin-top: 20px;
-    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
-.map-key {
+.area-card h3 {
+    font-size: 29px;
+    line-height: 1.1;
+    margin-bottom: 15px;
+}
+
+.area-card p {
+    color: rgba(255,255,255,.75);
+    font-size: 14px;
+}
+
+.area-list {
+    list-style: none;
+    margin-top: 28px;
+    display: grid;
+    gap: 11px;
+}
+
+.area-list li {
+    font-size: 14px;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 12px;
-    font-weight: 700;
-    color: var(--navy);
+    gap: 9px;
 }
 
-.map-dot {
-    width: 12px;
-    height: 12px;
+.area-list li::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    background: var(--light-blue);
     border-radius: 50%;
 }
 
-.primary-dot {
-    background: var(--blue);
+.map-note {
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.15);
+    color: rgba(255,255,255,.65);
+    font-size: 11px;
 }
 
-.additional-dot {
-    background: var(--navy);
+#service-map {
+    min-height: 520px;
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    border: 1px solid var(--border);
 }
 
-/* =========================================================
-   WHY US
-========================================================= */
-
-.why {
+.map-legend {
     background: white;
-}
-
-.why-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 70px;
-    align-items: center;
-}
-
-.why-card {
-    background: var(--off-white);
-    border-radius: 22px;
-    padding: 38px;
-}
-
-.why-card h3 {
-    color: var(--navy);
-    font-size: 24px;
-    margin-bottom: 25px;
-}
-
-.why-point {
-    display: grid;
-    grid-template-columns: 45px 1fr;
-    gap: 15px;
-    margin-bottom: 24px;
-}
-
-.why-point-icon {
-    width: 43px;
-    height: 43px;
-    display: grid;
-    place-items: center;
-    border-radius: 12px;
-    background: white;
-    color: var(--blue);
-    box-shadow: 0 6px 20px rgba(7,29,59,.07);
-}
-
-.why-point h4 {
-    font-size: 14px;
-    color: var(--navy);
-    margin-bottom: 3px;
-}
-
-.why-point p {
+    padding: 10px 13px;
+    border-radius: 7px;
+    box-shadow: 0 2px 10px rgba(0,0,0,.2);
+    font-family: Arial, sans-serif;
     font-size: 12px;
-    color: var(--muted);
 }
 
-/* =========================================================
+.legend-dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background: #0877c9;
+    border-radius: 50%;
+    margin-right: 6px;
+}
+
+@media(max-width:850px) {
+    .map-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .area-card {
+        min-height: auto;
+    }
+
+    #service-map {
+        min-height: 450px;
+    }
+}
+
+/* =========================
    CTA
-========================================================= */
+========================= */
 
 .cta {
-    padding: 80px 0;
+    padding: 0 0 95px;
 }
 
 .cta-box {
     position: relative;
     overflow: hidden;
     background:
-        linear-gradient(
-            100deg,
-            rgba(7,29,59,.98),
-            rgba(7,29,59,.84)
-        ),
-        url("https://images.unsplash.com/photo-1598902108854-10e335adac99?auto=format&fit=crop&w=1800&q=85")
-        center/cover;
-    border-radius: 28px;
-    padding: 65px;
+        linear-gradient(100deg, rgba(5,28,54,.97), rgba(8,76,126,.9)),
+        url("https://images.unsplash.com/photo-1589923188900-85dae523342b?auto=format&fit=crop&w=1800&q=80")
+        center / cover;
     color: white;
-}
-
-.cta-box::after {
-    content: "🦀";
-    position: absolute;
-    right: -30px;
-    bottom: -80px;
-    font-size: 260px;
-    opacity: .07;
-}
-
-.cta-box-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
+    border-radius: 22px;
+    padding: 65px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
 }
 
 .cta-box h2 {
-    font-size: clamp(32px, 5vw, 55px);
-    line-height: 1.05;
-    letter-spacing: -2px;
-    margin-bottom: 17px;
+    font-size: clamp(32px, 4vw, 49px);
+    line-height: 1;
+    margin-bottom: 15px;
 }
 
 .cta-box p {
-    color: rgba(255,255,255,.72);
-    margin-bottom: 28px;
+    color: rgba(255,255,255,.78);
+    max-width: 600px;
 }
 
-/* =========================================================
+.cta-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+}
+
+@media(max-width:800px) {
+    .cta-box {
+        padding: 40px 28px;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cta-buttons {
+        width: 100%;
+    }
+
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+
+/* =========================
    CONTACT
-========================================================= */
+========================= */
 
 .contact {
-    background: var(--off-white);
+    background: var(--light);
 }
 
 .contact-grid {
     display: grid;
-    grid-template-columns: .8fr 1.2fr;
-    gap: 50px;
-}
-
-.contact-details {
-    background: var(--navy);
-    color: white;
-    border-radius: 22px;
-    padding: 38px;
-}
-
-.contact-details h3 {
-    font-size: 26px;
-    margin-bottom: 12px;
-}
-
-.contact-details > p {
-    color: rgba(255,255,255,.65);
-    font-size: 13px;
-    margin-bottom: 30px;
-}
-
-.contact-item {
-    display: flex;
-    gap: 14px;
-    margin-bottom: 23px;
-}
-
-.contact-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 11px;
-    background: rgba(255,255,255,.09);
-    display: grid;
-    place-items: center;
-    color: var(--blue-light);
-}
-
-.contact-item strong {
-    display: block;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    color: rgba(255,255,255,.5);
-}
-
-.contact-item a,
-.contact-item span {
-    display: block;
-    font-size: 14px;
-    font-weight: 700;
-    margin-top: 2px;
-}
-
-.contact-item a:hover {
-    color: var(--blue-light);
-}
-
-.contact-form {
-    background: white;
-    padding: 38px;
-    border-radius: 22px;
-    box-shadow: var(--shadow);
-}
-
-.contact-form h3 {
-    color: var(--navy);
-    font-size: 25px;
-    margin-bottom: 8px;
-}
-
-.contact-form > p {
-    color: var(--muted);
-    font-size: 12px;
-    margin-bottom: 25px;
-}
-
-.form-grid {
-    display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 15px;
+    gap: 25px;
 }
 
-.form-group {
+.contact-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 35px;
+}
+
+.contact-card h3 {
+    color: var(--navy);
+    font-size: 24px;
     margin-bottom: 15px;
 }
 
-.form-group.full {
-    grid-column: 1 / -1;
+.contact-card p {
+    color: var(--gray);
+    font-size: 14px;
+    margin-bottom: 20px;
 }
 
-.form-group label {
-    display: block;
-    color: var(--navy);
-    font-size: 11px;
-    font-weight: 800;
-    margin-bottom: 7px;
+.contact-info {
+    display: grid;
+    gap: 12px;
 }
 
-.form-group input,
-.form-group textarea,
-.form-group select {
-    width: 100%;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 13px 14px;
-    font-size: 13px;
-    outline: none;
-    transition: .2s ease;
-    background: white;
+.contact-link {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px;
+    background: var(--light);
+    border-radius: 9px;
+    font-weight: 700;
+    font-size: 14px;
 }
 
-.form-group textarea {
-    min-height: 130px;
-    resize: vertical;
+.contact-link:hover {
+    background: #e8f4fb;
 }
 
-.form-group input:focus,
-.form-group textarea:focus,
-.form-group select:focus {
-    border-color: var(--blue);
-    box-shadow: 0 0 0 3px rgba(22,136,229,.1);
+.contact-symbol {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border-radius: 8px;
+    background: var(--blue);
+    color: white;
+    flex-shrink: 0;
 }
 
-/* =========================================================
+@media(max-width:750px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* =========================
    FOOTER
-========================================================= */
+========================= */
 
 footer {
     background: #041326;
     color: white;
-    padding: 55px 0 25px;
+    padding: 45px 0 25px;
 }
 
-.footer-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr;
-    gap: 50px;
-    padding-bottom: 40px;
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
 }
 
 .footer-brand {
     display: flex;
-    gap: 15px;
     align-items: center;
-    margin-bottom: 20px;
+    gap: 15px;
 }
 
-.footer-logo {
+.footer-brand img {
     width: 70px;
-    height: 70px;
+    height: 60px;
     object-fit: contain;
 }
 
 .footer-brand strong {
-    display: block;
     font-size: 18px;
 }
 
 .footer-brand span {
     display: block;
-    font-size: 9px;
+    color: #6cb7e9;
+    font-size: 11px;
     letter-spacing: 1px;
-    color: var(--blue-light);
-    font-weight: 800;
-    text-transform: uppercase;
-}
-
-.footer-description {
-    max-width: 420px;
-    color: rgba(255,255,255,.52);
-    font-size: 12px;
-}
-
-footer h4 {
-    font-size: 12px;
-    text-transform: uppercase;
-    letter-spacing: 1.2px;
-    margin-bottom: 17px;
+    margin-top: 3px;
 }
 
 .footer-links {
-    display: grid;
-    gap: 10px;
-}
-
-.footer-links a {
-    color: rgba(255,255,255,.6);
-    font-size: 12px;
+    display: flex;
+    gap: 20px;
+    font-size: 13px;
+    font-weight: 600;
 }
 
 .footer-links a:hover {
-    color: var(--blue-light);
+    color: #65b8ed;
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255,255,255,.09);
+    border-top: 1px solid rgba(255,255,255,.1);
+    margin-top: 30px;
     padding-top: 20px;
     display: flex;
     justify-content: space-between;
     gap: 20px;
-    color: rgba(255,255,255,.4);
-    font-size: 10px;
+    color: rgba(255,255,255,.5);
+    font-size: 11px;
 }
 
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 900px) {
-
-    .nav-links {
-        display: none;
-    }
-
-    .topbar-right {
-        display: none;
-    }
-
-    .topbar-inner {
-        justify-content: center;
-    }
-
-    .hero {
-        min-height: 650px;
-    }
-
-    .hero-content {
-        text-align: center;
-        margin: auto;
-    }
-
-    .hero-logo {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .hero-buttons {
-        justify-content: center;
-    }
-
-    .trust-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .about-grid,
-    .restoration-grid,
-    .why-grid,
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .restoration-image {
-        min-height: 400px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .about-badge {
-        right: 20px;
-    }
-}
-
-@media (max-width: 600px) {
-
-    .container {
-        width: min(100% - 28px, 1180px);
-    }
-
-    .brand-name {
-        font-size: 16px;
-    }
-
-    .brand-tagline {
-        font-size: 8px;
-    }
-
-    .brand-logo {
-        width: 55px;
-        height: 55px;
-    }
-
-    .hero {
-        min-height: 720px;
-    }
-
-    .hero h1 {
-        font-size: 43px;
-        letter-spacing: -2px;
-    }
-
-    .hero p {
-        font-size: 15px;
-    }
-
-    .hero-logo {
-        width: 300px;
-    }
-
-    section {
-        padding: 70px 0;
-    }
-
-    .trust-grid {
-        grid-template-columns: 1fr;
-        padding: 22px;
-    }
-
-    .services-heading {
-        display: block;
-    }
-
-    .services-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .form-group.full {
-        grid-column: auto;
-    }
-
-    #service-map {
-        height: 430px;
-    }
-
-    .cta-box {
-        padding: 38px 25px;
-    }
-
-    .contact-form,
-    .contact-details {
-        padding: 27px;
-    }
-
-    .footer-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
+@media(max-width:650px) {
+    .footer-inner,
     .footer-bottom {
         flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .footer-links {
+        flex-wrap: wrap;
     }
 }
 
+/* =========================
+   MOBILE CALL BUTTON
+========================= */
+
+.mobile-call {
+    display: none;
+}
+
+@media(max-width:600px) {
+    .mobile-call {
+        display: block;
+        position: fixed;
+        bottom: 14px;
+        left: 14px;
+        right: 14px;
+        z-index: 2000;
+        background: var(--blue);
+        color: white;
+        text-align: center;
+        padding: 15px;
+        border-radius: 10px;
+        font-weight: 900;
+        box-shadow: 0 8px 25px rgba(0,0,0,.3);
+    }
+}
+
+/* =========================
+   SMALL DETAILS
+========================= */
+
+::selection {
+    background: var(--blue);
+    color: white;
+}
+
+.leaflet-popup-content-wrapper {
+    border-radius: 10px;
+}
+
+.leaflet-popup-content {
+    font-family: Arial, sans-serif;
+}
+
+.popup-title {
+    font-weight: 800;
+    color: #071d3a;
+    margin-bottom: 4px;
+}
+
+.popup-text {
+    color: #657383;
+    font-size: 12px;
+}
 </style>
 </head>
 
 <body>
 
-<!-- ======================================================
-     TOP BAR
-====================================================== -->
-
+<!-- TOP BAR -->
 <div class="topbar">
     <div class="container topbar-inner">
-
-        <div class="topbar-left">
-            <span>🦀</span>
-            <span>Keeping Your Property Shoreline Sharp</span>
-        </div>
-
-        <div class="topbar-right">
-            <a href="tel:+14437587953">443-758-7953</a>
-            <a href="mailto:wyattsbayblades@gmail.com">
-                wyattsbayblades@gmail.com
-            </a>
-        </div>
-
+        <span>Serving Maryland's Eastern Shore</span>
+        <a href="tel:+14437587953">📞 443-758-7953</a>
     </div>
 </div>
 
+<!-- NAVIGATION -->
+<header>
+    <div class="container nav">
 
-<!-- ======================================================
-     NAVIGATION
-====================================================== -->
-
-<nav class="navbar">
-
-    <div class="container nav-inner">
-
-        <a href="#home" class="brand">
-
+        <a href="#home" class="nav-logo">
             <img
-                src="assets/logo.png"
-                alt="Wyatt's Bay Blades"
-                class="brand-logo"
+                src="7D9BD12C-E289-4471-A69A-AE38F69D9150.PNG"
+                alt="Wyatt's Bay Blades logo"
             >
 
-            <div>
-                <div class="brand-name">Wyatt's Bay Blades</div>
-                <span class="brand-tagline">
-                    Lawn Care & Landscaping
-                </span>
+            <div class="nav-brand">
+                WYATT'S BAY BLADES
+                <span>LAWN CARE & LANDSCAPING</span>
             </div>
-
         </a>
 
-        <div class="nav-links">
-
-            <a href="#about">About</a>
-
+        <nav class="nav-links">
             <a href="#services">Services</a>
-
-            <a href="#restoration">Lawn Restoration</a>
-
             <a href="#service-area">Service Area</a>
-
+            <a href="#about">About</a>
             <a href="#contact">Contact</a>
-
-            <a
-                href="tel:+14437587953"
-                class="nav-cta"
-            >
-                Call Now
-            </a>
-
-        </div>
+            <a href="tel:+14437587953" class="nav-call">Call Now</a>
+        </nav>
 
     </div>
+</header>
 
-</nav>
+<!-- HERO -->
+<main>
 
-
-<!-- ======================================================
-     HERO
-====================================================== -->
-
-<header class="hero" id="home">
-
+<section class="hero" id="home">
     <div class="container">
 
         <div class="hero-content">
 
-            <div class="hero-kicker">
-                <span>✦</span>
+            <img
+                class="hero-logo"
+                src="7D9BD12C-E289-4471-A69A-AE38F69D9150.PNG"
+                alt="Wyatt's Bay Blades"
+            >
+
+            <div class="eyebrow">
                 Maryland's Eastern Shore
             </div>
-
-            <img
-                src="assets/logo.png"
-                alt="Wyatt's Bay Blades crab logo"
-                class="hero-logo"
-            >
 
             <h1>
                 Keeping Your Property
@@ -1247,620 +1007,290 @@ footer h4 {
             </h1>
 
             <p>
-                Professional lawn care, mowing, landscaping,
-                cleanups and lawn restoration for homeowners
-                throughout Maryland's Eastern Shore and surrounding areas.
+                Professional lawn care, mowing, landscaping and property
+                maintenance for homeowners throughout Maryland's Eastern Shore.
             </p>
 
             <div class="hero-buttons">
-
-                <a
-                    href="tel:+14437587953"
-                    class="btn btn-primary"
-                >
-                    ☎ Call Wyatt's Bay Blades
+                <a href="tel:+14437587953" class="btn btn-primary">
+                    📞 Call for a Free Estimate
                 </a>
 
-                <a
-                    href="#contact"
-                    class="btn btn-outline"
-                >
-                    Request an Estimate
+                <a href="#service-area" class="btn btn-white">
+                    📍 View Service Area
                 </a>
-
             </div>
 
         </div>
 
     </div>
+</section>
 
-</header>
-
-
-<!-- ======================================================
-     TRUST STRIP
-====================================================== -->
-
-<div class="trust-strip">
-
+<!-- TRUST -->
+<div class="trust">
     <div class="container">
-
-        <div class="trust-grid">
+        <div class="trust-card">
 
             <div class="trust-item">
-
                 <div class="trust-icon">✓</div>
-
                 <div>
-                    <strong>Licensed & Insured</strong>
-                    <span>Professional service</span>
+                    <strong>Professional Service</strong>
+                    <span>Quality work on every property</span>
                 </div>
-
             </div>
 
             <div class="trust-item">
+                <div class="trust-icon">🌱</div>
+                <div>
+                    <strong>Property Care</strong>
+                    <span>From mowing to complete cleanups</span>
+                </div>
+            </div>
 
+            <div class="trust-item">
                 <div class="trust-icon">★</div>
-
                 <div>
                     <strong>Free Estimates</strong>
-                    <span>Let's discuss your property</span>
+                    <span>Let's take a look at your property</span>
                 </div>
-
             </div>
 
-            <div class="trust-item">
+        </div>
+    </div>
+</div>
 
-                <div class="trust-icon">⌁</div>
+<!-- ABOUT -->
+<section class="about" id="about">
+    <div class="container">
 
-                <div>
-                    <strong>Local Service</strong>
-                    <span>Maryland's Eastern Shore</span>
-                </div>
+        <div class="about-grid">
 
+            <div class="about-logo-box">
+                <img
+                    src="7D9BD12C-E289-4471-A69A-AE38F69D9150.PNG"
+                    alt="Wyatt's Bay Blades crab logo"
+                >
             </div>
 
-            <div class="trust-item">
+            <div class="about-copy">
 
-                <div class="trust-icon">🦀</div>
+                <div class="section-label">Wyatt's Bay Blades</div>
 
-                <div>
-                    <strong>Shoreline Sharp</strong>
-                    <span>Detail-focused property care</span>
-                </div>
+                <h3>
+                    Your property deserves more than just a quick mow.
+                </h3>
+
+                <p>
+                    Wyatt's Bay Blades provides dependable lawn care and
+                    landscaping services designed to keep your property looking
+                    clean, healthy and well maintained throughout the season.
+                </p>
+
+                <p>
+                    From routine mowing and trimming to landscape cleanups,
+                    mulch, gravel, lawn restoration and property maintenance,
+                    we're here to help keep your property looking its best.
+                </p>
+
+                <ul class="check-list">
+                    <li>
+                        <span class="check">✓</span>
+                        Reliable lawn mowing and trimming
+                    </li>
+                    <li>
+                        <span class="check">✓</span>
+                        Landscape bed and property cleanups
+                    </li>
+                    <li>
+                        <span class="check">✓</span>
+                        Mulch, gravel and landscape projects
+                    </li>
+                    <li>
+                        <span class="check">✓</span>
+                        Lawn restoration and improvement
+                    </li>
+                </ul>
+
+                <a href="#contact" class="btn btn-primary">
+                    Get a Free Estimate
+                </a>
 
             </div>
 
         </div>
 
     </div>
+</section>
 
-</div>
+<!-- SERVICES -->
+<section class="services" id="services">
+    <div class="container">
 
+        <div class="section-heading">
+            <div class="section-label">What We Do</div>
 
-<!-- ======================================================
-     ABOUT
-====================================================== -->
-
-<section class="about" id="about">
-
-    <div class="container about-grid">
-
-        <div class="about-image">
-
-            <div class="about-image-main"></div>
-
-            <div class="about-badge">
-                <strong>Local.</strong>
-                <span>
-                    Hands-on lawn care and landscaping
-                    for Maryland properties.
-                </span>
-            </div>
-
-        </div>
-
-
-        <div class="about-copy">
-
-            <div class="section-kicker">
-                About Wyatt's Bay Blades
-            </div>
-
-            <h2 class="section-title">
-                More Than Just Cutting Grass.
+            <h2>
+                Property care from the ground up.
             </h2>
 
             <p>
-                Wyatt's Bay Blades was built around a simple idea:
-                your property deserves more than a quick mow.
+                Whether you need regular lawn maintenance or have a larger
+                landscaping project, Wyatt's Bay Blades can help.
             </p>
-
-            <p>
-                From lawn restoration and soil preparation to
-                mowing, trimming, landscape beds and property
-                cleanups, the goal is to leave every property
-                looking better than it did when we arrived.
-            </p>
-
-            <p>
-                With hands-on experience in landscaping, plant
-                health, soil, lawn care and property maintenance,
-                we focus on doing the work correctly instead of
-                taking shortcuts.
-            </p>
-
-            <ul class="about-list">
-
-                <li>
-                    Detailed property maintenance
-                </li>
-
-                <li>
-                    Lawn restoration & improvement
-                </li>
-
-                <li>
-                    Landscape bed installation & cleanup
-                </li>
-
-                <li>
-                    Mowing, trimming & seasonal services
-                </li>
-
-            </ul>
-
-            <a href="#contact" class="btn btn-primary">
-                Talk About Your Property
-            </a>
-
         </div>
-
-    </div>
-
-</section>
-
-
-<!-- ======================================================
-     SERVICES
-====================================================== -->
-
-<section class="services" id="services">
-
-    <div class="container">
-
-        <div class="services-heading">
-
-            <div>
-
-                <div class="section-kicker">
-                    What We Do
-                </div>
-
-                <h2 class="section-title">
-                    Property Care Built Around Your Needs.
-                </h2>
-
-            </div>
-
-            <p class="section-text">
-                From routine mowing to major lawn restoration,
-                we can build a service plan around your property.
-            </p>
-
-        </div>
-
 
         <div class="services-grid">
 
             <div class="service-card">
-
-                <div class="service-number">01</div>
-
-                <h3>Lawn Mowing & Maintenance</h3>
-
+                <div class="service-icon">🌱</div>
+                <h3>Lawn Mowing</h3>
                 <p>
-                    Consistent mowing, trimming and cleanup
-                    to keep your lawn looking sharp throughout
-                    the growing season.
+                    Routine mowing, trimming and blowing to keep your lawn
+                    looking clean and maintained.
                 </p>
-
             </div>
 
-
             <div class="service-card">
-
-                <div class="service-number">02</div>
-
-                <h3>Lawn Restoration</h3>
-
+                <div class="service-icon">✂️</div>
+                <h3>Landscape Maintenance</h3>
                 <p>
-                    Improve struggling lawns through proper
-                    preparation, aeration, overseeding,
-                    soil improvement and establishment.
+                    Keep landscape beds, shrubs and property edges looking
+                    neat throughout the season.
                 </p>
-
             </div>
 
-
             <div class="service-card">
-
-                <div class="service-number">03</div>
-
-                <h3>Landscape Beds</h3>
-
+                <div class="service-icon">🪨</div>
+                <h3>Mulch & Gravel</h3>
                 <p>
-                    Bed cleanups, mulch installation,
-                    shrub trimming and landscape improvements
-                    that give your property a finished look.
+                    Mulch installation, gravel areas and landscape bed
+                    improvements that give your property a finished look.
                 </p>
-
             </div>
 
-
             <div class="service-card">
-
-                <div class="service-number">04</div>
-
+                <div class="service-icon">🍃</div>
                 <h3>Property Cleanups</h3>
-
                 <p>
-                    Remove overgrowth, debris, unwanted vegetation
-                    and other problem areas around your property.
+                    Overgrown beds, debris, branches and seasonal cleanup
+                    projects handled from start to finish.
                 </p>
-
             </div>
 
-
             <div class="service-card">
-
-                <div class="service-number">05</div>
-
-                <h3>Mulch & Soil Work</h3>
-
+                <div class="service-icon">🌾</div>
+                <h3>Lawn Restoration</h3>
                 <p>
-                    Topsoil, mulch and soil preparation services
-                    designed to improve both appearance and
-                    growing conditions.
+                    Help improve struggling lawns through appropriate
+                    preparation, seeding and lawn-care practices.
                 </p>
-
             </div>
 
-
             <div class="service-card">
-
-                <div class="service-number">06</div>
-
-                <h3>Seasonal Services</h3>
-
+                <div class="service-icon">🌳</div>
+                <h3>Property Maintenance</h3>
                 <p>
-                    Seasonal property maintenance and
-                    improvement projects to keep your outdoor
-                    spaces looking their best.
+                    Ongoing outdoor maintenance to keep your entire property
+                    looking sharp.
                 </p>
-
             </div>
 
         </div>
 
     </div>
-
 </section>
 
-
-<!-- ======================================================
-     LAWN RESTORATION
-====================================================== -->
-
-<section class="restoration" id="restoration">
-
-    <div class="container restoration-grid">
-
-        <div class="restoration-copy">
-
-            <div class="section-kicker">
-                Lawn Restoration
-            </div>
-
-            <h2 class="section-title">
-                A Better Lawn Starts Below the Grass.
-            </h2>
-
-            <p class="section-text">
-                When a lawn is thin, compacted, patchy or
-                struggling, simply throwing down seed isn't
-                always enough.
-            </p>
-
-
-            <div class="process">
-
-                <div class="process-step">
-
-                    <div class="process-number">
-                        01
-                    </div>
-
-                    <div>
-                        <h4>Evaluate</h4>
-
-                        <p>
-                            Look at the lawn, soil, sunlight,
-                            drainage and existing conditions.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <div class="process-step">
-
-                    <div class="process-number">
-                        02
-                    </div>
-
-                    <div>
-                        <h4>Prepare</h4>
-
-                        <p>
-                            Address compaction, thatch and
-                            other conditions preventing healthy growth.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <div class="process-step">
-
-                    <div class="process-number">
-                        03
-                    </div>
-
-                    <div>
-                        <h4>Seed</h4>
-
-                        <p>
-                            Select appropriate seed and establish
-                            good seed-to-soil contact.
-                        </p>
-                    </div>
-
-                </div>
-
-
-                <div class="process-step">
-
-                    <div class="process-number">
-                        04
-                    </div>
-
-                    <div>
-                        <h4>Establish</h4>
-
-                        <p>
-                            Watering and follow-up care are critical
-                            to getting the new grass established.
-                        </p>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="restoration-image"></div>
-
-    </div>
-
-</section>
-
-
-<!-- ======================================================
-     SERVICE AREA MAP
-====================================================== -->
-
+<!-- SERVICE AREA -->
 <section class="map-section" id="service-area">
-
     <div class="container">
 
-        <div class="map-heading">
+        <div class="section-heading">
+            <div class="section-label">Where We Work</div>
 
-            <div class="section-kicker">
-                Service Area
-            </div>
-
-            <h2 class="section-title">
+            <h2>
                 Serving Maryland's Eastern Shore.
             </h2>
 
-            <p class="section-text">
-                Explore the map below to see the areas around
-                Maryland's Eastern Shore where Wyatt's Bay Blades
-                can provide lawn care and landscaping services.
+            <p>
+                Explore our service area below. If you're nearby but don't see
+                your town listed, give us a call and we'll see how we can help.
             </p>
-
         </div>
 
+        <div class="map-layout">
 
-        <div class="map-wrapper">
+            <div class="area-card">
+
+                <div>
+                    <h3>
+                        Proudly serving the Eastern Shore.
+                    </h3>
+
+                    <p>
+                        Wyatt's Bay Blades is based on Maryland's Eastern Shore
+                        and provides lawn care and landscaping for residential
+                        properties throughout the surrounding communities.
+                    </p>
+
+                    <ul class="area-list">
+                        <li>Church Hill</li>
+                        <li>Centreville</li>
+                        <li>Chestertown</li>
+                        <li>Grasonville</li>
+                        <li>Stevensville</li>
+                        <li>Easton</li>
+                        <li>Queenstown</li>
+                        <li>And surrounding areas</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <a
+                        href="tel:+14437587953"
+                        class="btn btn-primary"
+                        style="width:100%;"
+                    >
+                        📞 Ask About Your Address
+                    </a>
+
+                    <div class="map-note">
+                        Service availability can vary by project and location.
+                        Contact us for confirmation and a free estimate.
+                    </div>
+                </div>
+
+            </div>
 
             <div id="service-map"></div>
 
         </div>
 
-
-        <div class="map-info">
-
-            <div class="map-key">
-                <span class="map-dot primary-dot"></span>
-                Primary service area
-            </div>
-
-            <div class="map-key">
-                <span class="map-dot additional-dot"></span>
-                Additional travel / project areas
-            </div>
-
-        </div>
-
     </div>
-
 </section>
 
-
-<!-- ======================================================
-     WHY WYATT'S
-====================================================== -->
-
-<section class="why">
-
-    <div class="container why-grid">
-
-        <div>
-
-            <div class="section-kicker">
-                Why Wyatt's Bay Blades
-            </div>
-
-            <h2 class="section-title">
-                We Treat Your Property Like It Matters.
-            </h2>
-
-            <p class="section-text">
-                Good landscaping isn't only about how things look
-                when the job is finished. It's about understanding
-                the property and doing the work in a way that lasts.
-            </p>
-
-        </div>
-
-
-        <div class="why-card">
-
-            <h3>
-                What Sets Us Apart
-            </h3>
-
-
-            <div class="why-point">
-
-                <div class="why-point-icon">
-                    ✓
-                </div>
-
-                <div>
-
-                    <h4>Attention to Detail</h4>
-
-                    <p>
-                        Clean edges, thorough cleanup and
-                        professional-looking finished work.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="why-point">
-
-                <div class="why-point-icon">
-                    ◆
-                </div>
-
-                <div>
-
-                    <h4>Soil & Lawn Knowledge</h4>
-
-                    <p>
-                        We look beyond the surface when diagnosing
-                        lawn and landscape problems.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="why-point">
-
-                <div class="why-point-icon">
-                    ⚙
-                </div>
-
-                <div>
-
-                    <h4>Proper Preparation</h4>
-
-                    <p>
-                        Successful landscaping starts with
-                        preparing the property correctly.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <div class="why-point">
-
-                <div class="why-point-icon">
-                    🦀
-                </div>
-
-                <div>
-
-                    <h4>Local & Hands-On</h4>
-
-                    <p>
-                        We work directly with homeowners and
-                        stay involved from estimate to completion.
-                    </p>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- ======================================================
-     CALL TO ACTION
-====================================================== -->
-
+<!-- CTA -->
 <section class="cta">
-
     <div class="container">
 
         <div class="cta-box">
 
-            <div class="cta-box-content">
-
-                <div class="section-kicker">
-                    Ready to Get Started?
-                </div>
-
-                <h2>
-                    Let's Make Your Property Shoreline Sharp.
-                </h2>
+            <div>
+                <h2>Ready to sharpen up your property?</h2>
 
                 <p>
-                    Tell us what you're looking to accomplish
-                    and we'll talk through the project with you.
+                    Tell us what you need done and let's take a look at your
+                    property. Free estimates available.
                 </p>
+            </div>
 
-                <a
-                    href="tel:+14437587953"
-                    class="btn btn-primary"
-                >
-                    ☎ 443-758-7953
+            <div class="cta-buttons">
+
+                <a href="tel:+14437587953" class="btn btn-primary">
+                    📞 443-758-7953
+                </a>
+
+                <a href="mailto:wyattsbayblades@gmail.com" class="btn btn-white">
+                    ✉️ Email Us
                 </a>
 
             </div>
@@ -1868,591 +1298,292 @@ footer h4 {
         </div>
 
     </div>
-
 </section>
 
-
-<!-- ======================================================
-     CONTACT
-====================================================== -->
-
+<!-- CONTACT -->
 <section class="contact" id="contact">
+    <div class="container">
 
-    <div class="container contact-grid">
+        <div class="section-heading">
+            <div class="section-label">Get In Touch</div>
 
-
-        <div class="contact-details">
-
-            <div class="section-kicker">
-                Contact Wyatt's Bay Blades
-            </div>
-
-            <h3>
-                Let's Talk About Your Property.
-            </h3>
+            <h2>
+                Let's talk about your property.
+            </h2>
 
             <p>
-                Have a lawn that needs attention, a landscape
-                project you've been putting off, or a property
-                that needs regular maintenance?
+                Have a mowing question, landscaping project or property
+                cleanup? Reach out for a free estimate.
             </p>
+        </div>
 
+        <div class="contact-grid">
 
-            <div class="contact-item">
+            <div class="contact-card">
 
-                <div class="contact-icon">
-                    ☎
-                </div>
+                <h3>Contact Wyatt's Bay Blades</h3>
 
-                <div>
+                <p>
+                    The quickest way to reach us is by phone. You can also send
+                    us an email with details about your property and what you'd
+                    like done.
+                </p>
 
-                    <strong>Phone</strong>
-
-                    <a href="tel:+14437587953">
-                        443-758-7953
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <div class="contact-icon">
-                    ✉
-                </div>
-
-                <div>
-
-                    <strong>Email</strong>
-
-                    <a href="mailto:wyattsbayblades@gmail.com">
-                        wyattsbayblades@gmail.com
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <div class="contact-item">
-
-                <div class="contact-icon">
-                    f
-                </div>
-
-                <div>
-
-                    <strong>Facebook</strong>
+                <div class="contact-info">
 
                     <a
+                        class="contact-link"
+                        href="tel:+14437587953"
+                    >
+                        <span class="contact-symbol">☎</span>
+                        <span>443-758-7953</span>
+                    </a>
+
+                    <a
+                        class="contact-link"
+                        href="mailto:wyattsbayblades@gmail.com"
+                    >
+                        <span class="contact-symbol">✉</span>
+                        <span>wyattsbayblades@gmail.com</span>
+                    </a>
+
+                    <a
+                        class="contact-link"
                         href="https://www.facebook.com/WyattsBayBlades"
                         target="_blank"
                         rel="noopener"
                     >
-                        Wyatt's Bay Blades
+                        <span class="contact-symbol">f</span>
+                        <span>Wyatt's Bay Blades on Facebook</span>
                     </a>
 
                 </div>
 
             </div>
 
+            <div class="contact-card">
 
-            <div class="contact-item">
+                <h3>Request a Free Estimate</h3>
 
-                <div class="contact-icon">
-                    ⌖
-                </div>
+                <p>
+                    When contacting us, let us know your location, what service
+                    you're interested in and anything else you'd like us to
+                    know about the property.
+                </p>
 
-                <div>
+                <a
+                    href="tel:+14437587953"
+                    class="btn btn-primary"
+                    style="width:100%;"
+                >
+                    📞 Call Wyatt's Bay Blades
+                </a>
 
-                    <strong>Service Area</strong>
+                <br><br>
 
-                    <span>
-                        Maryland's Eastern Shore
-                        & surrounding areas
-                    </span>
-
-                </div>
+                <a
+                    href="mailto:wyattsbayblades@gmail.com?subject=Free%20Estimate%20Request"
+                    class="btn"
+                    style="width:100%;background:#eaf6fd;color:#071d3a;"
+                >
+                    ✉️ Email for an Estimate
+                </a>
 
             </div>
-
-        </div>
-
-
-        <div class="contact-form">
-
-            <h3>
-                Request an Estimate
-            </h3>
-
-            <p>
-                Tell us a little about your project and
-                we'll get back to you.
-            </p>
-
-
-            <!--
-                This form opens the visitor's email program.
-                It does NOT require a separate form service.
-            -->
-
-            <form
-                action="mailto:wyattsbayblades@gmail.com"
-                method="post"
-                enctype="text/plain"
-            >
-
-                <div class="form-grid">
-
-
-                    <div class="form-group">
-
-                        <label for="name">
-                            Name
-                        </label>
-
-                        <input
-                            type="text"
-                            id="name"
-                            name="Name"
-                            placeholder="Your name"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="phone">
-                            Phone
-                        </label>
-
-                        <input
-                            type="tel"
-                            id="phone"
-                            name="Phone"
-                            placeholder="Your phone number"
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="email">
-                            Email
-                        </label>
-
-                        <input
-                            type="email"
-                            id="email"
-                            name="Email"
-                            placeholder="you@example.com"
-                            required
-                        >
-
-                    </div>
-
-
-                    <div class="form-group">
-
-                        <label for="service">
-                            Service
-                        </label>
-
-                        <select
-                            id="service"
-                            name="Service"
-                        >
-
-                            <option>
-                                Select a service
-                            </option>
-
-                            <option>
-                                Lawn Mowing
-                            </option>
-
-                            <option>
-                                Lawn Restoration
-                            </option>
-
-                            <option>
-                                Mulch / Landscape Beds
-                            </option>
-
-                            <option>
-                                Property Cleanup
-                            </option>
-
-                            <option>
-                                Soil / Topsoil
-                            </option>
-
-                            <option>
-                                Other
-                            </option>
-
-                        </select>
-
-                    </div>
-
-
-                    <div class="form-group full">
-
-                        <label for="message">
-                            Tell Us About Your Project
-                        </label>
-
-                        <textarea
-                            id="message"
-                            name="Project Details"
-                            placeholder="Tell us what you would like done..."
-                        ></textarea>
-
-                    </div>
-
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="btn btn-primary"
-                >
-                    Send Estimate Request
-                </button>
-
-            </form>
 
         </div>
 
     </div>
-
 </section>
 
+</main>
 
-<!-- ======================================================
-     FOOTER
-====================================================== -->
-
+<!-- FOOTER -->
 <footer>
 
     <div class="container">
 
-        <div class="footer-grid">
+        <div class="footer-inner">
 
+            <div class="footer-brand">
 
-            <div>
+                <img
+                    src="7D9BD12C-E289-4471-A69A-AE38F69D9150.PNG"
+                    alt="Wyatt's Bay Blades"
+                >
 
-                <div class="footer-brand">
-
-                    <img
-                        src="assets/logo.png"
-                        alt="Wyatt's Bay Blades"
-                        class="footer-logo"
-                    >
-
-                    <div>
-
-                        <strong>
-                            Wyatt's Bay Blades
-                        </strong>
-
-                        <span>
-                            Keeping Your Property Shoreline Sharp
-                        </span>
-
-                    </div>
-
-                </div>
-
-                <p class="footer-description">
-                    Professional lawn care, landscaping,
-                    lawn restoration and property maintenance
-                    throughout Maryland's Eastern Shore.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h4>
-                    Navigation
-                </h4>
-
-                <div class="footer-links">
-
-                    <a href="#home">Home</a>
-
-                    <a href="#about">About</a>
-
-                    <a href="#services">Services</a>
-
-                    <a href="#restoration">
-                        Lawn Restoration
-                    </a>
-
-                    <a href="#service-area">
-                        Service Area
-                    </a>
-
-                    <a href="#contact">
-                        Contact
-                    </a>
-
+                <div>
+                    <strong>Wyatt's Bay Blades</strong>
+                    <span>KEEPING YOUR PROPERTY SHORELINE SHARP</span>
                 </div>
 
             </div>
 
-
-            <div>
-
-                <h4>
-                    Contact
-                </h4>
-
-                <div class="footer-links">
-
-                    <a href="tel:+14437587953">
-                        443-758-7953
-                    </a>
-
-                    <a href="mailto:wyattsbayblades@gmail.com">
-                        wyattsbayblades@gmail.com
-                    </a>
-
-                    <a
-                        href="https://www.facebook.com/WyattsBayBlades"
-                        target="_blank"
-                        rel="noopener"
-                    >
-                        Facebook
-                    </a>
-
-                </div>
-
+            <div class="footer-links">
+                <a href="#services">Services</a>
+                <a href="#service-area">Service Area</a>
+                <a href="#contact">Contact</a>
+                <a href="tel:+14437587953">Call</a>
             </div>
-
 
         </div>
 
-
         <div class="footer-bottom">
-
             <span>
                 © 2026 Wyatt's Bay Blades. All rights reserved.
             </span>
 
             <span>
-                Keeping Your Property Shoreline Sharp.
+                Maryland's Eastern Shore
             </span>
-
         </div>
 
     </div>
 
 </footer>
 
+<!-- MOBILE CALL BUTTON -->
+<a
+    href="tel:+14437587953"
+    class="mobile-call"
+>
+    📞 Call Wyatt's Bay Blades — 443-758-7953
+</a>
 
-<!-- ======================================================
-     LEAFLET MAP
-====================================================== -->
-
+<!-- LEAFLET MAP -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
 <script>
-
 document.addEventListener("DOMContentLoaded", function () {
-
-    /*
-     * Maryland Eastern Shore map
-     */
 
     const map = L.map("service-map", {
         scrollWheelZoom: false
-    }).setView([38.80, -76.15], 9);
-
-
-    /*
-     * OpenStreetMap
-     */
+    }).setView([38.82, -76.20], 10);
 
     L.tileLayer(
         "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
         {
             maxZoom: 19,
-            attribution:
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+            attribution: '&copy; OpenStreetMap contributors'
         }
     ).addTo(map);
 
-
     /*
-     * Primary service area
+     * Approximate service-area visualization.
+     * The map is intentionally shown as an approximate coverage area,
+     * rather than claiming every address inside the shape is guaranteed.
      */
 
-    const primaryArea = L.circle(
-        [38.86, -76.10],
+    const serviceArea = L.polygon(
+        [
+            [39.04, -76.40],
+            [39.02, -76.10],
+            [38.98, -75.82],
+            [38.80, -75.78],
+            [38.61, -75.92],
+            [38.57, -76.25],
+            [38.67, -76.43],
+            [38.88, -76.47]
+        ],
         {
-            color: "#1688e5",
-            fillColor: "#1688e5",
-            fillOpacity: 0.13,
+            color: "#0877c9",
             weight: 3,
-            radius: 30000
+            fillColor: "#0877c9",
+            fillOpacity: 0.16
         }
     ).addTo(map);
 
-
-    primaryArea.bindPopup(
-        "<strong>Primary Service Area</strong><br>" +
-        "Maryland's Eastern Shore"
+    serviceArea.bindPopup(
+        "<div class='popup-title'>Wyatt's Bay Blades</div>" +
+        "<div class='popup-text'>Approximate Eastern Shore service area. " +
+        "Call us to confirm availability at your address.</div>"
     );
 
-
-    /*
-     * Main location marker
-     */
-
-    const homeMarker = L.marker([38.91, -76.16])
-        .addTo(map);
-
-    homeMarker.bindPopup(
-        "<strong>Wyatt's Bay Blades</strong><br>" +
-        "Maryland's Eastern Shore<br><br>" +
-        "<a href='tel:+14437587953'>443-758-7953</a>"
-    );
-
-
-    /*
-     * Community markers
-     */
-
-    const locations = [
-
+    const towns = [
         {
             name: "Church Hill",
-            coords: [39.138, -75.982]
+            lat: 39.147,
+            lng: -75.982,
+            text: "Wyatt's Bay Blades home base."
         },
-
         {
             name: "Centreville",
-            coords: [39.041, -76.641]
+            lat: 39.041,
+            lng: -76.641,
+            text: "Lawn care & landscaping."
         },
-
         {
             name: "Grasonville",
-            coords: [38.959, -76.200]
+            lat: 38.968,
+            lng: -76.542,
+            text: "Lawn care & property maintenance."
         },
-
+        {
+            name: "Queenstown",
+            lat: 38.928,
+            lng: -76.159,
+            text: "Lawn care & landscaping."
+        },
         {
             name: "Stevensville",
-            coords: [38.981, -76.315]
+            lat: 38.981,
+            lng: -76.314,
+            text: "Lawn care & landscaping."
         },
-
         {
             name: "Easton",
-            coords: [38.774, -76.076]
+            lat: 38.774,
+            lng: -76.076,
+            text: "Lawn care & property maintenance."
         },
-
         {
             name: "Chestertown",
-            coords: [39.209, -76.069]
-        },
-
-        {
-            name: "Annapolis",
-            coords: [38.978, -76.492]
+            lat: 39.209,
+            lng: -76.069,
+            text: "Lawn care & landscaping."
         }
-
     ];
 
-
-    locations.forEach(function (location) {
+    towns.forEach(function(town) {
 
         const marker = L.circleMarker(
-            location.coords,
+            [town.lat, town.lng],
             {
                 radius: 7,
-                color: "#071d3b",
-                fillColor: "#1688e5",
-                fillOpacity: 1,
-                weight: 3
+                color: "#ffffff",
+                weight: 2,
+                fillColor: "#0877c9",
+                fillOpacity: 1
             }
         ).addTo(map);
 
-
         marker.bindPopup(
-            "<strong>" +
-            location.name +
-            "</strong><br>" +
-            "Wyatt's Bay Blades service area"
+            "<div class='popup-title'>" +
+            town.name +
+            "</div>" +
+            "<div class='popup-text'>" +
+            town.text +
+            "</div>"
         );
 
     });
 
+    const legend = L.control({position: "bottomright"});
 
-    /*
-     * Additional travel area
-     */
+    legend.onAdd = function() {
 
-    const travelArea = L.circle(
-        [38.96, -76.32],
-        {
-            color: "#071d3b",
-            fillColor: "#071d3b",
-            fillOpacity: 0.035,
-            weight: 2,
-            dashArray: "8 8",
-            radius: 50000
-        }
-    ).addTo(map);
+        const div = L.DomUtil.create("div", "map-legend");
 
+        div.innerHTML =
+            '<span class="legend-dot"></span>' +
+            'Wyatt\'s Bay Blades service area';
 
-    travelArea.bindPopup(
-        "<strong>Additional Travel / Project Area</strong><br>" +
-        "Contact Wyatt's Bay Blades to discuss your project."
-    );
+        return div;
+    };
 
-
-    /*
-     * Enable scroll zoom after clicking map
-     */
-
-    map.on("click", function () {
-        map.scrollWheelZoom.enable();
-    });
+    legend.addTo(map);
 
 });
-
-</script>
-
-
-<!-- ======================================================
-     SIMPLE YEAR SCRIPT
-====================================================== -->
-
-<script>
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    const footerText = document.querySelector(".footer-bottom span");
-
-    if (footerText) {
-
-        footerText.innerHTML =
-            "© " +
-            new Date().getFullYear() +
-            " Wyatt's Bay Blades. All rights reserved.";
-
-    }
-
-});
-
 </script>
 
 </body>
