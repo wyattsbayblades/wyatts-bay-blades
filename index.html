@@ -6,11 +6,10 @@
 
 <title>Wyatt's Bay Blades | Lawn Care & Landscaping</title>
 
-<meta name="description" content="Professional lawn care, mowing, landscaping, lawn restoration and property maintenance throughout Maryland's Eastern Shore.">
+<meta name="description" content="Wyatt's Bay Blades provides lawn care, landscaping, lawn restoration and property maintenance throughout Maryland's Eastern Shore.">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
@@ -62,10 +61,7 @@ img{
   margin:auto;
 }
 
-
-/* =========================
-   HEADER
-========================= */
+/* HEADER */
 
 header{
   position:absolute;
@@ -73,7 +69,6 @@ header{
   left:0;
   width:100%;
   z-index:20;
-
   background:linear-gradient(
     180deg,
     rgba(3,12,24,.92),
@@ -101,14 +96,14 @@ header{
   display:flex;
   align-items:center;
   justify-content:center;
-  gap:32px;
+  gap:28px;
   margin-left:auto;
 }
 
 .navlinks a{
   color:#fff;
   font-weight:800;
-  font-size:14px;
+  font-size:13px;
   text-transform:uppercase;
   transition:.2s;
 }
@@ -120,7 +115,7 @@ header{
 .navphone{
   color:var(--blue);
   font-weight:900;
-  font-size:17px;
+  font-size:16px;
   white-space:nowrap;
 }
 
@@ -131,11 +126,11 @@ header{
 
 .estimate{
   border:1px solid rgba(255,255,255,.9);
-  padding:15px 23px;
+  padding:15px 21px;
   color:#fff;
   font-weight:800;
   text-transform:uppercase;
-  font-size:13px;
+  font-size:12px;
   white-space:nowrap;
   transition:.25s;
   background:rgba(0,0,0,.1);
@@ -155,10 +150,7 @@ header{
   cursor:pointer;
 }
 
-
-/* =========================
-   HERO
-========================= */
+/* HERO */
 
 .hero{
   min-height:850px;
@@ -174,11 +166,6 @@ header{
       rgba(2,12,24,.62) 34%,
       rgba(2,12,24,.10) 68%
     ),
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.18),
-      rgba(0,0,0,.08)
-    ),
     url("hero-background.jpg") center/cover no-repeat;
 }
 
@@ -189,7 +176,6 @@ header{
   right:0;
   bottom:0;
   height:190px;
-
   background:linear-gradient(
     transparent,
     rgba(1,13,9,.82)
@@ -208,7 +194,6 @@ header{
   font-size:20px;
   font-weight:900;
   text-transform:uppercase;
-  letter-spacing:.3px;
   margin-bottom:8px;
 }
 
@@ -273,10 +258,7 @@ h1 span{
   color:var(--navy);
 }
 
-
-/* =========================
-   TRUST BAR
-========================= */
+/* TRUST */
 
 .hero-bottom{
   position:absolute;
@@ -284,7 +266,6 @@ h1 span{
   left:0;
   right:0;
   z-index:5;
-
   background:rgba(2,12,12,.72);
   backdrop-filter:blur(8px);
 }
@@ -321,10 +302,7 @@ h1 span{
   font-size:13px;
 }
 
-
-/* =========================
-   GENERAL SECTIONS
-========================= */
+/* GENERAL */
 
 section{
   padding:95px 0;
@@ -351,78 +329,113 @@ section{
 .section-lead{
   color:var(--muted);
   font-size:17px;
-  max-width:720px;
+  max-width:760px;
 }
 
-
-/* =========================
-   ABOUT
-========================= */
+/* ABOUT / OUR STORY */
 
 .about{
   background:#fff;
 }
 
-.about-grid{
+.story-grid{
   display:grid;
-  grid-template-columns:1.05fr .95fr;
+  grid-template-columns:1.1fr .9fr;
   gap:70px;
-  align-items:center;
+  align-items:start;
 }
 
-.about-card{
+.story-copy p{
+  color:var(--muted);
+  font-size:17px;
+  margin-bottom:20px;
+}
+
+.story-copy .lead-story{
+  color:var(--text);
+  font-size:21px;
+  font-weight:600;
+  line-height:1.65;
+}
+
+.story-highlight{
   background:linear-gradient(
     135deg,
     var(--navy),
     #0c335d
   );
-
   color:#fff;
-  padding:45px;
+  padding:42px;
   box-shadow:var(--shadow);
   position:relative;
   overflow:hidden;
 }
 
-.about-card:before{
+.story-highlight:after{
   content:"🦀";
   position:absolute;
-  font-size:180px;
-  right:-20px;
+  right:-15px;
   bottom:-45px;
+  font-size:180px;
   opacity:.08;
 }
 
-.about-card h3{
+.story-highlight h3{
+  position:relative;
+  z-index:2;
   font-family:"Barlow Condensed";
-  font-size:36px;
+  font-size:38px;
+  line-height:1;
   text-transform:uppercase;
-  margin-bottom:15px;
+  margin-bottom:20px;
 }
 
-.about-card p{
+.story-highlight p{
+  position:relative;
+  z-index:2;
   color:#dce8f4;
+  margin-bottom:18px;
 }
 
-.checks{
+.story-signature{
+  position:relative;
+  z-index:2;
   margin-top:25px;
+  padding-top:20px;
+  border-top:1px solid rgba(255,255,255,.18);
+  font-family:"Barlow Condensed";
+  font-size:25px;
+  text-transform:uppercase;
+  color:#fff;
+}
+
+.story-values{
   display:grid;
-  gap:12px;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+  margin-top:55px;
 }
 
-.checks div{
-  font-weight:700;
+.story-value{
+  background:#f1f5f8;
+  padding:28px;
+  border-top:4px solid var(--blue);
 }
 
-.checks span{
-  color:var(--blue);
-  margin-right:9px;
+.story-value h3{
+  font-family:"Barlow Condensed";
+  font-size:27px;
+  color:var(--navy);
+  text-transform:uppercase;
+  margin-bottom:7px;
 }
 
+.story-value p{
+  color:var(--muted);
+  font-size:14px;
+}
 
-/* =========================
-   SERVICES
-========================= */
+/* SERVICES */
 
 .services{
   background:#f1f5f8;
@@ -467,10 +480,7 @@ section{
   color:var(--muted);
 }
 
-
-/* =========================
-   LAWN RESTORATION
-========================= */
+/* RESTORATION */
 
 .restoration{
   background:linear-gradient(
@@ -478,7 +488,6 @@ section{
     #06182d 0%,
     #0d3457 100%
   );
-
   color:#fff;
 }
 
@@ -522,25 +531,14 @@ section{
   margin-top:8px;
 }
 
-
-/* =========================
-   FEATURED PROJECTS
-========================= */
+/* PROJECTS */
 
 .projects{
   background:#fff;
 }
 
 .project-intro{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  gap:30px;
   margin-bottom:45px;
-}
-
-.project-intro-copy{
-  max-width:760px;
 }
 
 .project-location{
@@ -561,10 +559,6 @@ section{
   padding:30px;
   box-shadow:0 10px 35px rgba(8,30,50,.09);
   margin-bottom:30px;
-}
-
-.project-card:last-child{
-  margin-bottom:0;
 }
 
 .project-number{
@@ -589,10 +583,7 @@ section{
   margin-bottom:22px;
 }
 
-
-/* =========================
-   BEFORE / AFTER SLIDER
-========================= */
+/* SLIDER */
 
 .before-after{
   position:relative;
@@ -684,11 +675,11 @@ section{
   pointer-events:none;
 }
 
-.slider-label.before-label{
+.before-label{
   left:18px;
 }
 
-.slider-label.after-label{
+.after-label{
   right:18px;
 }
 
@@ -700,35 +691,7 @@ section{
   margin-top:12px;
 }
 
-.project-results{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:15px;
-  margin-top:22px;
-}
-
-.result-box{
-  background:#fff;
-  padding:16px;
-  border-left:4px solid var(--blue);
-}
-
-.result-box strong{
-  display:block;
-  color:var(--navy);
-  text-transform:uppercase;
-  font-size:13px;
-}
-
-.result-box span{
-  color:var(--muted);
-  font-size:13px;
-}
-
-
-/* =========================
-   MAP
-========================= */
+/* MAP */
 
 .map-section{
   background:#f1f5f8;
@@ -775,10 +738,7 @@ section{
   background:var(--green);
 }
 
-
-/* =========================
-   WHY US
-========================= */
+/* WHY */
 
 .why{
   background:#fff;
@@ -815,10 +775,7 @@ section{
   margin-top:7px;
 }
 
-
-/* =========================
-   CTA
-========================= */
+/* CTA */
 
 .cta{
   padding:75px 0;
@@ -860,10 +817,7 @@ section{
   color:#fff;
 }
 
-
-/* =========================
-   CONTACT
-========================= */
+/* CONTACT */
 
 .contact{
   background:#fff;
@@ -944,10 +898,7 @@ form button{
   border:0;
 }
 
-
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 
 footer{
   background:#041120;
@@ -990,23 +941,16 @@ footer a:hover{
   font-size:12px;
 }
 
-
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
 @media(max-width:1050px){
 
   .navlinks{
-    gap:18px;
+    gap:16px;
   }
 
   .navphone{
     display:none;
-  }
-
-  .hero{
-    min-height:790px;
   }
 
 }
@@ -1052,7 +996,7 @@ footer a:hover{
     grid-template-columns:1fr 1fr;
   }
 
-  .about-grid,
+  .story-grid,
   .contact-grid{
     grid-template-columns:1fr;
   }
@@ -1069,12 +1013,8 @@ footer a:hover{
     grid-template-columns:1fr 1fr;
   }
 
-  .project-results{
-    grid-template-columns:1fr 1fr;
-  }
-
-  .project-intro{
-    display:block;
+  .story-values{
+    grid-template-columns:1fr;
   }
 
   .cta-row{
@@ -1125,6 +1065,14 @@ footer a:hover{
     font-size:44px;
   }
 
+  .story-copy .lead-story{
+    font-size:18px;
+  }
+
+  .story-highlight{
+    padding:30px;
+  }
+
   .map-legend{
     position:static;
     margin-bottom:12px;
@@ -1146,10 +1094,6 @@ footer a:hover{
     padding:18px;
   }
 
-  .project-card h3{
-    font-size:28px;
-  }
-
   .before-after{
     aspect-ratio:4 / 3;
   }
@@ -1165,16 +1109,12 @@ footer a:hover{
     font-size:10px;
   }
 
-  .slider-label.before-label{
+  .before-label{
     left:12px;
   }
 
-  .slider-label.after-label{
+  .after-label{
     right:12px;
-  }
-
-  .project-results{
-    grid-template-columns:1fr;
   }
 
 }
@@ -1182,13 +1122,7 @@ footer a:hover{
 </style>
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
@@ -1197,73 +1131,44 @@ footer a:hover{
 <a href="#home">
 
 <img
-  class="logo"
-  src="ChatGPT Image Aug 11, 2026 at 01_48_21 AM.png"
-  alt="Wyatt's Bay Blades"
+class="logo"
+src="ChatGPT Image Aug 11, 2026 at 01_48_21 AM.png"
+alt="Wyatt's Bay Blades"
 >
 
 </a>
-
 
 <nav class="navlinks">
 
 <a href="#home">Home</a>
-
 <a href="#services">Services</a>
-
 <a href="#restoration">Lawn Restoration</a>
-
 <a href="#projects">Our Work</a>
-
 <a href="#service-area">Service Area</a>
-
 <a href="#about">About</a>
-
 <a href="#contact">Contact</a>
 
 </nav>
 
-
-<a
-  class="navphone"
-  href="tel:4437587953"
->
-  <span>☎</span>
-  443-758-7953
+<a class="navphone" href="tel:4437587953">
+<span>☎</span> 443-758-7953
 </a>
 
-
-<a
-  class="estimate"
-  href="#contact"
->
-  Get a Free Estimate
+<a class="estimate" href="#contact">
+Get a Free Estimate
 </a>
 
-
-<button
-  class="menu"
-  aria-label="Menu"
->
-☰
-</button>
+<button class="menu" aria-label="Menu">☰</button>
 
 </div>
 
 </header>
 
-
 <main>
 
+<!-- HERO -->
 
-<!-- =========================
-     HERO
-========================= -->
-
-<section
-  class="hero"
-  id="home"
->
+<section class="hero" id="home">
 
 <div class="container hero-content">
 
@@ -1271,40 +1176,24 @@ footer a:hover{
 Maryland's Eastern Shore
 </div>
 
-
 <h1>
-
 Keeping Your Property
-
 <br>
-
 <span>Shoreline Sharp.</span>
-
 </h1>
 
-
 <p class="hero-copy">
-
 Professional lawn care, landscaping, and lawn restoration
 for properties across Maryland's Eastern Shore.
-
 </p>
-
 
 <div class="actions">
 
-<a
-  class="btn btn-primary"
-  href="tel:4437587953"
->
+<a class="btn btn-primary" href="tel:4437587953">
 ☎ &nbsp; Call 443-758-7953
 </a>
 
-
-<a
-  class="btn btn-outline"
-  href="#contact"
->
+<a class="btn btn-outline" href="#contact">
 Request an Estimate
 </a>
 
@@ -1312,95 +1201,41 @@ Request an Estimate
 
 </div>
 
-
 <div class="hero-bottom">
 
 <div class="container trust">
 
+<div class="trust-item">
+<div class="trust-icon">◆</div>
+<div>
+<strong>Local & Reliable</strong>
+<small>Eastern Shore based and committed</small>
+</div>
+</div>
 
 <div class="trust-item">
-
-<div class="trust-icon">
-◆
-</div>
-
+<div class="trust-icon">✓</div>
 <div>
-
-<strong>
-Local & Reliable
-</strong>
-
-<small>
-Eastern Shore based and committed
-</small>
-
+<strong>Quality Work</strong>
+<small>We take pride in every property</small>
 </div>
-
 </div>
-
 
 <div class="trust-item">
-
-<div class="trust-icon">
-✓
-</div>
-
+<div class="trust-icon">♧</div>
 <div>
-
-<strong>
-Quality Work
-</strong>
-
-<small>
-We take pride in every property
-</small>
-
+<strong>Lawn Restoration</strong>
+<small>We improve lawns from the ground up</small>
 </div>
-
 </div>
-
 
 <div class="trust-item">
-
-<div class="trust-icon">
-♧
-</div>
-
+<div class="trust-icon">▣</div>
 <div>
-
-<strong>
-Lawn Restoration
-</strong>
-
-<small>
-We improve lawns from the ground up
-</small>
-
+<strong>Free Estimates</strong>
+<small>Honest quotes and clear communication</small>
 </div>
-
 </div>
-
-
-<div class="trust-item">
-
-<div class="trust-icon">
-▣
-</div>
-
-<div>
-
-<strong>
-Free Estimates
-</strong>
-
-<small>
-Honest quotes and clear communication
-</small>
-
-</div>
-
-</div>
-
 
 </div>
 
@@ -1409,116 +1244,159 @@ Honest quotes and clear communication
 </section>
 
 
-<!-- =========================
-     ABOUT
-========================= -->
+<!-- ABOUT / OUR STORY -->
 
-<section
-  class="about"
-  id="about"
->
+<section class="about" id="about">
 
-<div class="container about-grid">
+<div class="container">
 
+<div class="story-grid">
 
-<div>
+<div class="story-copy">
 
 <div class="section-kicker">
-About Wyatt's Bay Blades
+Our Story
 </div>
-
 
 <div class="section-title">
-More Than Just Cutting Grass.
+Built With Purpose.
 </div>
 
-
-<p class="section-lead">
-
-Wyatt's Bay Blades was built around a simple idea:
-your property deserves more than a quick mow.
-From lawn restoration and soil preparation to mowing,
-trimming, landscape beds and property cleanups,
-the goal is to leave every property looking better
-than it did when we arrived.
-
+<p class="lead-story">
+Wyatt's Bay Blades is a local landscaping company built
+around a love for working outdoors, improving properties,
+and doing work that you can be proud to put your name on.
 </p>
 
+<p>
+My experience in the landscaping industry started at
+Homestead Gardens Nursery, where I worked from 2011 through
+2019. I started as a loader, helping customers with mulch,
+soil, trees, shrubs and other landscaping materials.
+Over time, I worked my way up and developed hands-on
+experience with plants, soil, fertilizers, lawn care,
+trees, shrubs and landscaping.
+</p>
 
-<div class="checks">
+<p>
+After Homestead Gardens, I went on to work at
+Hillis-Carnes Engineering Associates. That experience gave
+me an even deeper appreciation for what happens beneath
+the surface of a property — including soil, compaction,
+drainage and the conditions that can make or break a
+landscaping or lawn project.
+</p>
 
-<div>
-<span>✓</span>
-Detailed property maintenance
+<p>
+Today, while I work full-time in another career, landscaping
+has remained something I genuinely enjoy. Wyatt's Bay Blades
+is my opportunity to build something of my own, work directly
+with homeowners, and put the experience I've gained over the
+years to work for local properties.
+</p>
+
+<p>
+Most importantly, this business is something I'm building
+for my family. The name Wyatt's Bay Blades has personal
+meaning to me, and building the company gives that name a
+lasting place in something positive.
+</p>
+
+<p>
+I want every customer to know exactly who they're hiring.
+I'm not interested in being the biggest landscaping company
+around. I want to be the company people call when they want
+someone who cares about the property, communicates with them,
+and takes pride in the finished product.
+</p>
+
 </div>
 
-<div>
-<span>✓</span>
-Lawn restoration & improvement
-</div>
 
-<div>
-<span>✓</span>
-Landscape bed installation & cleanup
-</div>
-
-<div>
-<span>✓</span>
-Mowing, trimming & seasonal services
-</div>
-
-</div>
-
-</div>
-
-
-<div class="about-card">
+<div class="story-highlight">
 
 <h3>
-Keeping the Eastern Shore Sharp.
+Why Wyatt's Bay Blades?
 </h3>
 
 <p>
-Hands-on lawn care, landscaping and property improvement
-with attention to the details that make a property stand out.
+A business should stand for something more than simply
+making money.
 </p>
 
+<p>
+For me, Wyatt's Bay Blades is about family, hard work,
+building something meaningful, and creating a future that
+my family can be proud of.
+</p>
 
-<div class="checks">
+<p>
+Every property I work on is another opportunity to build
+that business one customer at a time.
+</p>
 
-<div>
-<span>✓</span>
-Local, hands-on service
-</div>
-
-<div>
-<span>✓</span>
-Free estimates
-</div>
-
-<div>
-<span>✓</span>
-Clear communication
-</div>
-
+<div class="story-signature">
+Patrick<br>
+Owner — Wyatt's Bay Blades
 </div>
 
 </div>
 
+</div>
+
+
+<div class="story-values">
+
+<div class="story-value">
+
+<h3>
+Do It Right
+</h3>
+
+<p>
+I believe preparation, attention to detail and doing the
+job correctly matter more than simply getting it done fast.
+</p>
+
+</div>
+
+<div class="story-value">
+
+<h3>
+Treat People Right
+</h3>
+
+<p>
+Clear communication, honest estimates and treating a
+customer's property with respect are just as important
+as the work itself.
+</p>
+
+</div>
+
+<div class="story-value">
+
+<h3>
+Build Something Meaningful
+</h3>
+
+<p>
+Wyatt's Bay Blades is a family business I'm building
+with purpose, one property and one customer at a time.
+</p>
+
+</div>
+
+</div>
 
 </div>
 
 </section>
 
 
-<!-- =========================
-     SERVICES
-========================= -->
+<!-- SERVICES -->
 
-<section
-  class="services"
-  id="services"
->
+<section class="services" id="services">
 
 <div class="container">
 
@@ -1531,124 +1409,66 @@ Property Care Built Around Your Needs.
 </div>
 
 <p class="section-lead">
-
 From routine mowing to major lawn restoration,
 we can build a service plan around your property.
-
 </p>
-
 
 <div class="service-grid">
 
-
 <article class="service">
-
-<div class="service-num">
-01
-</div>
-
-<h3>
-Lawn Mowing & Maintenance
-</h3>
-
+<div class="service-num">01</div>
+<h3>Lawn Mowing & Maintenance</h3>
 <p>
 Consistent mowing, trimming and cleanup to keep
 your lawn looking sharp throughout the growing season.
 </p>
-
 </article>
 
-
 <article class="service">
-
-<div class="service-num">
-02
-</div>
-
-<h3>
-Lawn Restoration
-</h3>
-
+<div class="service-num">02</div>
+<h3>Lawn Restoration</h3>
 <p>
 Improve struggling lawns through proper preparation,
 aeration, overseeding, soil improvement and establishment.
 </p>
-
 </article>
 
-
 <article class="service">
-
-<div class="service-num">
-03
-</div>
-
-<h3>
-Landscape Beds
-</h3>
-
+<div class="service-num">03</div>
+<h3>Landscape Beds</h3>
 <p>
 Bed cleanups, mulch installation, shrub trimming
 and landscape improvements that give your property
 a finished look.
 </p>
-
 </article>
 
-
 <article class="service">
-
-<div class="service-num">
-04
-</div>
-
-<h3>
-Property Cleanups
-</h3>
-
+<div class="service-num">04</div>
+<h3>Property Cleanups</h3>
 <p>
 Remove overgrowth, debris, unwanted vegetation
 and other problem areas around your property.
 </p>
-
 </article>
 
-
 <article class="service">
-
-<div class="service-num">
-05
-</div>
-
-<h3>
-Mulch & Soil Work
-</h3>
-
+<div class="service-num">05</div>
+<h3>Mulch & Soil Work</h3>
 <p>
 Topsoil, mulch and soil preparation services designed
 to improve both appearance and growing conditions.
 </p>
-
 </article>
 
-
 <article class="service">
-
-<div class="service-num">
-06
-</div>
-
-<h3>
-Seasonal Services
-</h3>
-
+<div class="service-num">06</div>
+<h3>Seasonal Services</h3>
 <p>
 Seasonal property maintenance and improvement projects
 to keep your outdoor spaces looking their best.
 </p>
-
 </article>
-
 
 </div>
 
@@ -1657,14 +1477,9 @@ to keep your outdoor spaces looking their best.
 </section>
 
 
-<!-- =========================
-     LAWN RESTORATION
-========================= -->
+<!-- LAWN RESTORATION -->
 
-<section
-  class="restoration"
-  id="restoration"
->
+<section class="restoration" id="restoration">
 
 <div class="container">
 
@@ -1677,87 +1492,47 @@ A Better Lawn Starts Below the Grass.
 </div>
 
 <p class="section-lead">
-
 When a lawn is thin, compacted, patchy or struggling,
 simply throwing down seed isn't always enough.
-
 </p>
-
 
 <div class="steps">
 
-
 <div class="step">
-
-<div class="step-num">
-01
-</div>
-
-<h3>
-Evaluate
-</h3>
-
+<div class="step-num">01</div>
+<h3>Evaluate</h3>
 <p>
 Look at the lawn, soil, sunlight, drainage
 and existing conditions.
 </p>
-
 </div>
-
 
 <div class="step">
-
-<div class="step-num">
-02
-</div>
-
-<h3>
-Prepare
-</h3>
-
+<div class="step-num">02</div>
+<h3>Prepare</h3>
 <p>
 Address compaction, thatch and other conditions
 preventing healthy growth.
 </p>
-
 </div>
-
 
 <div class="step">
-
-<div class="step-num">
-03
-</div>
-
-<h3>
-Seed
-</h3>
-
+<div class="step-num">03</div>
+<h3>Seed</h3>
 <p>
 Select appropriate seed and establish good
 seed-to-soil contact.
 </p>
-
 </div>
-
 
 <div class="step">
-
-<div class="step-num">
-04
-</div>
-
-<h3>
-Establish
-</h3>
-
+<div class="step-num">04</div>
+<h3>Establish</h3>
 <p>
 Watering and follow-up care are critical to
 getting the new grass established.
 </p>
-
 </div>
-
 
 </div>
 
@@ -1766,21 +1541,13 @@ getting the new grass established.
 </section>
 
 
-<!-- =========================
-     FEATURED PROJECT
-========================= -->
+<!-- OUR WORK -->
 
-<section
-  class="projects"
-  id="projects"
->
+<section class="projects" id="projects">
 
 <div class="container">
 
-
 <div class="project-intro">
-
-<div class="project-intro-copy">
 
 <div class="project-location">
 📍 Grasonville, Maryland
@@ -1795,19 +1562,13 @@ Grasonville Lawn Restoration
 </div>
 
 <p class="section-lead">
-
 See the transformation for yourself. Drag the slider
 across each photo to compare the property before
 and after the work.
-
 </p>
 
 </div>
 
-</div>
-
-
-<!-- PROJECT 1 -->
 
 <div class="project-card">
 
@@ -1815,43 +1576,25 @@ and after the work.
 Project 01
 </div>
 
-<h3>
-Before & After
-</h3>
+<h3>Before & After</h3>
 
 <p>
 Drag the center handle left and right to see the transformation.
 </p>
 
+<div class="before-after">
 
-<div
-  class="before-after"
-  data-before="Grasonville Project 1.0.jpeg"
-  data-after="Grasonville Project 1.1.jpeg"
->
+<img class="before-image"
+src="Grasonville Project 1.0.jpeg"
+alt="Grasonville lawn before restoration">
 
-<img
-  class="before-image"
-  src="Grasonville Project 1.0.jpeg"
-  alt="Grasonville lawn before restoration"
->
+<img class="after-image"
+src="Grasonville Project 1.1.jpeg"
+alt="Grasonville lawn after restoration">
 
-<img
-  class="after-image"
-  src="Grasonville Project 1.1.jpeg"
-  alt="Grasonville lawn after restoration"
->
-
-<div class="slider-label before-label">
-Before
-</div>
-
-<div class="slider-label after-label">
-After
-</div>
-
+<div class="slider-label before-label">Before</div>
+<div class="slider-label after-label">After</div>
 <div class="slider-line"></div>
-
 <div class="slider-handle"></div>
 
 </div>
@@ -1862,8 +1605,6 @@ After
 
 </div>
 
-
-<!-- PROJECT 2 -->
 
 <div class="project-card">
 
@@ -1871,43 +1612,25 @@ After
 Project 02
 </div>
 
-<h3>
-Before & After
-</h3>
+<h3>Before & After</h3>
 
 <p>
-See another section of the Grasonville property before and after.
+Another section of the Grasonville property.
 </p>
 
+<div class="before-after">
 
-<div
-  class="before-after"
-  data-before="Grasonville Project 2.0.jpeg"
-  data-after="Grasonville Project 2.1.jpeg"
->
+<img class="before-image"
+src="Grasonville Project 2.0.jpeg"
+alt="Grasonville lawn before restoration">
 
-<img
-  class="before-image"
-  src="Grasonville Project 2.0.jpeg"
-  alt="Grasonville lawn before restoration"
->
+<img class="after-image"
+src="Grasonville Project 2.1.jpeg"
+alt="Grasonville lawn after restoration">
 
-<img
-  class="after-image"
-  src="Grasonville Project 2.1.jpeg"
-  alt="Grasonville lawn after restoration"
->
-
-<div class="slider-label before-label">
-Before
-</div>
-
-<div class="slider-label after-label">
-After
-</div>
-
+<div class="slider-label before-label">Before</div>
+<div class="slider-label after-label">After</div>
 <div class="slider-line"></div>
-
 <div class="slider-handle"></div>
 
 </div>
@@ -1918,8 +1641,6 @@ After
 
 </div>
 
-
-<!-- PROJECT 3 -->
 
 <div class="project-card">
 
@@ -1927,43 +1648,25 @@ After
 Project 03
 </div>
 
-<h3>
-Before & After
-</h3>
+<h3>Before & After</h3>
 
 <p>
 A closer look at the improvement made throughout the project.
 </p>
 
+<div class="before-after">
 
-<div
-  class="before-after"
-  data-before="Grasonville Project 3.0.jpeg"
-  data-after="Grasonville Project 3.1.jpeg"
->
+<img class="before-image"
+src="Grasonville Project 3.0.jpeg"
+alt="Grasonville lawn before restoration">
 
-<img
-  class="before-image"
-  src="Grasonville Project 3.0.jpeg"
-  alt="Grasonville lawn before restoration"
->
+<img class="after-image"
+src="Grasonville Project 3.1.jpeg"
+alt="Grasonville lawn after restoration">
 
-<img
-  class="after-image"
-  src="Grasonville Project 3.1.jpeg"
-  alt="Grasonville lawn after restoration"
->
-
-<div class="slider-label before-label">
-Before
-</div>
-
-<div class="slider-label after-label">
-After
-</div>
-
+<div class="slider-label before-label">Before</div>
+<div class="slider-label after-label">After</div>
 <div class="slider-line"></div>
-
 <div class="slider-handle"></div>
 
 </div>
@@ -1974,8 +1677,6 @@ After
 
 </div>
 
-
-<!-- PROJECT 4 -->
 
 <div class="project-card">
 
@@ -1983,43 +1684,25 @@ After
 Project 04
 </div>
 
-<h3>
-Before & After
-</h3>
+<h3>Before & After</h3>
 
 <p>
-The final comparison shows the overall improvement to the property.
+The final comparison shows the overall improvement.
 </p>
 
+<div class="before-after">
 
-<div
-  class="before-after"
-  data-before="Grasonville Project 4.0.jpeg"
-  data-after="Grasonville Project 4.1.jpeg"
->
+<img class="before-image"
+src="Grasonville Project 4.0.jpeg"
+alt="Grasonville lawn before restoration">
 
-<img
-  class="before-image"
-  src="Grasonville Project 4.0.jpeg"
-  alt="Grasonville lawn before restoration"
->
+<img class="after-image"
+src="Grasonville Project 4.1.jpeg"
+alt="Grasonville lawn after restoration">
 
-<img
-  class="after-image"
-  src="Grasonville Project 4.1.jpeg"
-  alt="Grasonville lawn after restoration"
->
-
-<div class="slider-label before-label">
-Before
-</div>
-
-<div class="slider-label after-label">
-After
-</div>
-
+<div class="slider-label before-label">Before</div>
+<div class="slider-label after-label">After</div>
 <div class="slider-line"></div>
-
 <div class="slider-handle"></div>
 
 </div>
@@ -2030,20 +1713,14 @@ After
 
 </div>
 
-
 </div>
 
 </section>
 
 
-<!-- =========================
-     SERVICE AREA MAP
-========================= -->
+<!-- MAP -->
 
-<section
-  class="map-section"
-  id="service-area"
->
+<section class="map-section" id="service-area">
 
 <div class="container">
 
@@ -2056,13 +1733,10 @@ Serving Maryland's Eastern Shore.
 </div>
 
 <p class="section-lead">
-
 Explore the map to see the areas around Maryland's
 Eastern Shore where Wyatt's Bay Blades can provide
 lawn care and landscaping services.
-
 </p>
-
 
 <div class="map-wrap">
 
@@ -2075,11 +1749,10 @@ Primary service area
 
 <div class="legend-row">
 <span class="dot green"></span>
-Additional travel / project areas
+Additional project areas
 </div>
 
 </div>
-
 
 <div id="map"></div>
 
@@ -2090,9 +1763,7 @@ Additional travel / project areas
 </section>
 
 
-<!-- =========================
-     WHY US
-========================= -->
+<!-- WHY -->
 
 <section class="why">
 
@@ -2107,88 +1778,48 @@ We Treat Your Property Like It Matters.
 </div>
 
 <p class="section-lead">
-
 Good landscaping isn't only about how things look
 when the job is finished. It's about understanding
 the property and doing the work in a way that lasts.
-
 </p>
-
 
 <div class="why-grid">
 
-
 <div class="why-card">
-
-<div class="why-icon">
-✓
-</div>
-
-<h3>
-Attention to Detail
-</h3>
-
+<div class="why-icon">✓</div>
+<h3>Attention to Detail</h3>
 <p>
 Clean edges, thorough cleanup and professional-looking
 finished work.
 </p>
-
 </div>
-
 
 <div class="why-card">
-
-<div class="why-icon">
-◆
-</div>
-
-<h3>
-Soil & Lawn Knowledge
-</h3>
-
+<div class="why-icon">◆</div>
+<h3>Soil & Lawn Knowledge</h3>
 <p>
 We look beyond the surface when diagnosing lawn
 and landscape problems.
 </p>
-
 </div>
-
 
 <div class="why-card">
-
-<div class="why-icon">
-⚙
-</div>
-
-<h3>
-Proper Preparation
-</h3>
-
+<div class="why-icon">⚙</div>
+<h3>Proper Preparation</h3>
 <p>
 Successful landscaping starts with preparing
 the property correctly.
 </p>
-
 </div>
-
 
 <div class="why-card">
-
-<div class="why-icon">
-🦀
-</div>
-
-<h3>
-Local & Hands-On
-</h3>
-
+<div class="why-icon">🦀</div>
+<h3>Local & Hands-On</h3>
 <p>
 We work directly with homeowners and stay involved
 from estimate to completion.
 </p>
-
 </div>
-
 
 </div>
 
@@ -2197,9 +1828,7 @@ from estimate to completion.
 </section>
 
 
-<!-- =========================
-     CTA
-========================= -->
+<!-- CTA -->
 
 <section class="cta">
 
@@ -2220,11 +1849,7 @@ and we'll talk through the project with you.
 
 </div>
 
-
-<a
-  class="btn"
-  href="#contact"
->
+<a class="btn" href="#contact">
 Request an Estimate
 </a>
 
@@ -2233,17 +1858,11 @@ Request an Estimate
 </section>
 
 
-<!-- =========================
-     CONTACT
-========================= -->
+<!-- CONTACT -->
 
-<section
-  class="contact"
-  id="contact"
->
+<section class="contact" id="contact">
 
 <div class="container contact-grid">
-
 
 <div>
 
@@ -2256,103 +1875,66 @@ Let's Talk About Your Property.
 </div>
 
 <p class="section-lead">
-
 Have a lawn that needs attention, a landscape project
 you've been putting off, or a property that needs
 regular maintenance?
-
 </p>
-
 
 <div class="contact-list">
 
-
 <div class="contact-row">
 
-<div class="icon">
-☎
-</div>
+<div class="icon">☎</div>
 
 <div>
-
-<strong>
-Phone
-</strong>
-
+<strong>Phone</strong>
 <a href="tel:4437587953">
 443-758-7953
 </a>
-
 </div>
 
 </div>
-
 
 <div class="contact-row">
 
-<div class="icon">
-✉
-</div>
+<div class="icon">✉</div>
 
 <div>
-
-<strong>
-Email
-</strong>
-
+<strong>Email</strong>
 <a href="mailto:wyattsbayblades@gmail.com">
 wyattsbayblades@gmail.com
 </a>
-
 </div>
 
 </div>
-
 
 <div class="contact-row">
 
-<div class="icon">
-f
-</div>
+<div class="icon">f</div>
 
 <div>
-
-<strong>
-Facebook
-</strong>
-
+<strong>Facebook</strong>
 <a
-  href="https://www.facebook.com/WyattsBayBlades/"
-  target="_blank"
->
+href="https://www.facebook.com/WyattsBayBlades/"
+target="_blank">
 Wyatt's Bay Blades
 </a>
-
 </div>
 
 </div>
-
 
 <div class="contact-row">
 
-<div class="icon">
-⌖
-</div>
+<div class="icon">⌖</div>
 
 <div>
-
-<strong>
-Service Area
-</strong>
-
+<strong>Service Area</strong>
 <span>
 Maryland's Eastern Shore & surrounding areas
 </span>
-
 </div>
 
 </div>
-
 
 </div>
 
@@ -2360,99 +1942,71 @@ Maryland's Eastern Shore & surrounding areas
 
 
 <form
-  action="mailto:wyattsbayblades@gmail.com"
-  method="post"
-  enctype="text/plain"
+action="mailto:wyattsbayblades@gmail.com"
+method="post"
+enctype="text/plain"
 >
-
 
 <div>
 
 <label>
-
 Name
 
 <input
-  name="Name"
-  type="text"
-  placeholder="Your name"
-  required
+name="Name"
+type="text"
+placeholder="Your name"
+required
 >
 
 </label>
 
 </div>
 
-
 <div>
 
 <label>
-
 Phone
 
 <input
-  name="Phone"
-  type="tel"
-  placeholder="Your phone number"
+name="Phone"
+type="tel"
+placeholder="Your phone number"
 >
 
 </label>
 
 </div>
 
-
 <div>
 
 <label>
-
 Email
 
 <input
-  name="Email"
-  type="email"
-  placeholder="you@example.com"
+name="Email"
+type="email"
+placeholder="you@example.com"
 >
 
 </label>
 
 </div>
 
-
 <div>
 
 <label>
-
 Service
 
 <select name="Service">
 
-<option>
-Lawn Mowing & Maintenance
-</option>
-
-<option>
-Lawn Restoration
-</option>
-
-<option>
-Landscape Beds
-</option>
-
-<option>
-Property Cleanup
-</option>
-
-<option>
-Mulch & Soil Work
-</option>
-
-<option>
-Seasonal Services
-</option>
-
-<option>
-Other
-</option>
+<option>Lawn Mowing & Maintenance</option>
+<option>Lawn Restoration</option>
+<option>Landscape Beds</option>
+<option>Property Cleanup</option>
+<option>Mulch & Soil Work</option>
+<option>Seasonal Services</option>
+<option>Other</option>
 
 </select>
 
@@ -2460,34 +2014,29 @@ Other
 
 </div>
 
-
 <div class="full">
 
 <label>
-
 Tell Us About Your Project
 
 <textarea
-  name="Project"
-  placeholder="Tell us what you need done..."
+name="Project"
+placeholder="Tell us what you need done..."
 ></textarea>
 
 </label>
 
 </div>
 
-
 <div class="full">
 
 <button
-  class="btn btn-primary"
-  type="submit"
->
+class="btn btn-primary"
+type="submit">
 Send Estimate Request
 </button>
 
 </div>
-
 
 </form>
 
@@ -2495,25 +2044,21 @@ Send Estimate Request
 
 </section>
 
-
 </main>
 
 
-<!-- =========================
-     FOOTER
-========================= -->
+<!-- FOOTER -->
 
 <footer>
 
 <div class="container footer-grid">
 
-
 <div>
 
 <img
-  class="footer-logo"
-  src="ChatGPT Image Aug 11, 2026 at 01_48_21 AM.png"
-  alt="Wyatt's Bay Blades"
+class="footer-logo"
+src="ChatGPT Image Aug 11, 2026 at 01_48_21 AM.png"
+alt="Wyatt's Bay Blades"
 >
 
 <p>
@@ -2523,49 +2068,23 @@ and property maintenance throughout Maryland's Eastern Shore.
 
 </div>
 
-
 <div>
 
-<h3>
-Navigation
-</h3>
+<h3>Navigation</h3>
 
-<a href="#home">
-Home
-</a>
-
-<a href="#about">
-About
-</a>
-
-<a href="#services">
-Services
-</a>
-
-<a href="#restoration">
-Lawn Restoration
-</a>
-
-<a href="#projects">
-Our Work
-</a>
-
-<a href="#service-area">
-Service Area
-</a>
-
-<a href="#contact">
-Contact
-</a>
+<a href="#home">Home</a>
+<a href="#about">Our Story</a>
+<a href="#services">Services</a>
+<a href="#restoration">Lawn Restoration</a>
+<a href="#projects">Our Work</a>
+<a href="#service-area">Service Area</a>
+<a href="#contact">Contact</a>
 
 </div>
 
-
 <div>
 
-<h3>
-Contact
-</h3>
+<h3>Contact</h3>
 
 <a href="tel:4437587953">
 443-758-7953
@@ -2576,17 +2095,14 @@ wyattsbayblades@gmail.com
 </a>
 
 <a
-  href="https://www.facebook.com/WyattsBayBlades/"
-  target="_blank"
->
+href="https://www.facebook.com/WyattsBayBlades/"
+target="_blank">
 Facebook
 </a>
 
 </div>
 
-
 </div>
-
 
 <div class="container copyright">
 
@@ -2599,45 +2115,45 @@ Keeping Your Property Shoreline Sharp.
 </footer>
 
 
-<!-- =========================
-     LEAFLET MAP
-========================= -->
-
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
 
 <script>
 
-/* =========================
-   BEFORE / AFTER SLIDERS
-========================= */
+/* BEFORE / AFTER SLIDERS */
 
 document.querySelectorAll('.before-after').forEach(slider => {
 
-  const afterImage = slider.querySelector('.after-image');
-  const line = slider.querySelector('.slider-line');
-  const handle = slider.querySelector('.slider-handle');
+  const afterImage =
+    slider.querySelector('.after-image');
+
+  const line =
+    slider.querySelector('.slider-line');
+
+  const handle =
+    slider.querySelector('.slider-handle');
 
   let dragging = false;
 
 
   function updateSlider(clientX){
 
-    const rect = slider.getBoundingClientRect();
+    const rect =
+      slider.getBoundingClientRect();
 
     let position =
       ((clientX - rect.left) / rect.width) * 100;
 
-    position = Math.max(0, Math.min(100, position));
-
+    position =
+      Math.max(0, Math.min(100, position));
 
     afterImage.style.clipPath =
       `inset(0 ${100-position}% 0 0)`;
 
+    line.style.left =
+      position + '%';
 
-    line.style.left = position + '%';
-
-    handle.style.left = position + '%';
+    handle.style.left =
+      position + '%';
 
   }
 
@@ -2648,8 +2164,8 @@ document.querySelectorAll('.before-after').forEach(slider => {
 
     const point =
       event.touches
-        ? event.touches[0]
-        : event;
+      ? event.touches[0]
+      : event;
 
     updateSlider(point.clientX);
 
@@ -2662,8 +2178,8 @@ document.querySelectorAll('.before-after').forEach(slider => {
 
     const point =
       event.touches
-        ? event.touches[0]
-        : event;
+      ? event.touches[0]
+      : event;
 
     updateSlider(point.clientX);
 
@@ -2671,9 +2187,7 @@ document.querySelectorAll('.before-after').forEach(slider => {
 
 
   function stopDrag(){
-
     dragging = false;
-
   }
 
 
@@ -2691,7 +2205,6 @@ document.querySelectorAll('.before-after').forEach(slider => {
     'mouseup',
     stopDrag
   );
-
 
   slider.addEventListener(
     'touchstart',
@@ -2711,35 +2224,33 @@ document.querySelectorAll('.before-after').forEach(slider => {
   );
 
 
-  /* Start every slider at 50% */
+  const rect =
+    slider.getBoundingClientRect();
 
   updateSlider(
-    slider.getBoundingClientRect().left +
-    slider.getBoundingClientRect().width / 2
+    rect.left + rect.width / 2
   );
 
 });
 
 
-/* =========================
-   MAP
-========================= */
+/* MAP */
 
-const map = L.map('map').setView(
-  [38.78,-76.25],
-  9
-);
+const map =
+  L.map('map').setView(
+    [38.78,-76.25],
+    9
+  );
 
 
 L.tileLayer(
   'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
   {
-    attribution:'&copy; OpenStreetMap contributors'
+    attribution:
+    '&copy; OpenStreetMap contributors'
   }
 ).addTo(map);
 
-
-/* PRIMARY SERVICE AREAS */
 
 const primary = [
 
@@ -2758,8 +2269,6 @@ const primary = [
 ];
 
 
-/* ADDITIONAL PROJECT AREAS */
-
 const extra = [
 
   [38.98,-76.49,'Annapolis'],
@@ -2771,14 +2280,10 @@ const extra = [
 ];
 
 
-/* PRIMARY MARKERS */
-
 primary.forEach(p => {
 
   L.circleMarker(
-
     [p[0],p[1]],
-
     {
       radius:7,
       color:'#0b6fd7',
@@ -2786,30 +2291,21 @@ primary.forEach(p => {
       fillOpacity:.9,
       weight:2
     }
-
   )
-
   .addTo(map)
-
   .bindPopup(
-
     '<strong>' +
     p[2] +
     '</strong><br>Primary service area'
-
   );
 
 });
 
 
-/* EXTRA MARKERS */
-
 extra.forEach(p => {
 
   L.circleMarker(
-
     [p[0],p[1]],
-
     {
       radius:7,
       color:'#237936',
@@ -2817,90 +2313,70 @@ extra.forEach(p => {
       fillOpacity:.9,
       weight:2
     }
-
   )
-
   .addTo(map)
-
   .bindPopup(
-
     '<strong>' +
     p[2] +
-    '</strong><br>Additional travel / project area'
-
+    '</strong><br>Additional project area'
   );
 
 });
 
 
-/* SERVICE AREA */
-
 const area = [
 
   [39.10,-76.75],
-
   [39.08,-76.05],
-
   [39.00,-75.80],
-
   [38.65,-75.78],
-
   [38.42,-76.55],
-
   [38.50,-76.85],
-
   [38.70,-76.82],
-
   [39.10,-76.75]
 
 ];
 
 
 L.polygon(
-
   area,
-
   {
     color:'#1688f8',
     weight:2,
     fillColor:'#1688f8',
     fillOpacity:.08
   }
-
 ).addTo(map);
 
 
-/* =========================
-   MOBILE MENU
-========================= */
+/* MOBILE MENU */
 
 document
-  .querySelector('.menu')
-  .addEventListener('click', () => {
+.querySelector('.menu')
+.addEventListener('click', () => {
 
-    const nav =
-      document.querySelector('.navlinks');
+  const nav =
+    document.querySelector('.navlinks');
 
-    if(nav.style.display === 'flex'){
+  if(nav.style.display === 'flex'){
 
-      nav.style.display = 'none';
+    nav.style.display = 'none';
 
-    }else{
+  }else{
 
-      nav.style.display = 'flex';
+    nav.style.display = 'flex';
 
-      nav.style.position = 'absolute';
-      nav.style.top = '80px';
-      nav.style.right = '4%';
-      nav.style.flexDirection = 'column';
-      nav.style.background = '#07182e';
-      nav.style.padding = '20px';
-      nav.style.gap = '18px';
+    nav.style.position = 'absolute';
+    nav.style.top = '80px';
+    nav.style.right = '4%';
+    nav.style.flexDirection = 'column';
+    nav.style.background = '#07182e';
+    nav.style.padding = '20px';
+    nav.style.gap = '18px';
 
-    }
+  }
 
-  });
-
+});
 
 </script>
 
