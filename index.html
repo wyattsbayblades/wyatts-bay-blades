@@ -889,6 +889,88 @@ footer {
     </div>
 </section>
 
+    <!-- SERVICE AREA MAP -->
+<section class="map-section">
+  <div class="map-container">
+
+    <div class="map-heading">
+      <h2>Proudly Serving Maryland's Eastern Shore</h2>
+      <p>
+        Wyatt's Bay Blades provides professional lawn care,
+        landscaping, cleanups and property maintenance throughout
+        our Eastern Shore service area.
+      </p>
+    </div>
+
+    <div id="service-map"></div>
+
+  </div>
+</section>
+
+<!-- Leaflet JavaScript -->
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+<script>
+  const map = L.map('service-map').setView([39.1400, -75.9500], 10);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  // Wyatt's Bay Blades service area
+  const serviceArea = L.circle([39.1400, -75.9500], {
+    radius: 30000,
+    color: '#2e7d32',
+    fillColor: '#4caf50',
+    fillOpacity: 0.15,
+    weight: 3
+  }).addTo(map);
+
+  serviceArea.bindPopup(`
+    <strong>Wyatt's Bay Blades</strong><br>
+    Lawn Care & Landscaping<br>
+    Maryland's Eastern Shore<br><br>
+    <a href="tel:+14437587953">📞 Call for a Free Quote</a>
+  `);
+
+  // Main business marker
+  const businessMarker = L.marker([39.1400, -75.9500]).addTo(map);
+
+  businessMarker.bindPopup(`
+    <strong>Wyatt's Bay Blades</strong><br>
+    Professional Lawn Care & Landscaping<br>
+    Maryland's Eastern Shore<br><br>
+    <a href="tel:+14437587953">Call 443-758-7953</a>
+  `);
+
+  // Service-area locations
+  const locations = [
+    ["Church Hill", 39.1390, -75.9830],
+    ["Chestertown", 39.2090, -76.0690],
+    ["Rock Hall", 39.1380, -76.2340],
+    ["Grasonville", 38.9580, -76.5440],
+    ["Centreville", 39.0430, -76.6410],
+    ["Queenstown", 38.9860, -76.1580],
+    ["Easton", 38.7740, -76.0760],
+    ["Annapolis", 38.9784, -76.4922]
+  ];
+
+  locations.forEach(function(location) {
+    L.circleMarker([location[1], location[2]], {
+      radius: 6,
+      color: '#2e7d32',
+      fillColor: '#ffffff',
+      fillOpacity: 1,
+      weight: 3
+    })
+    .addTo(map)
+    .bindPopup(
+      '<strong>' + location[0] + '</strong><br>' +
+      'Wyatt\'s Bay Blades Service Area'
+    );
+  });
+</script>
+    
 </main>
 
 <footer>
