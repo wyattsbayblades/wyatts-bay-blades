@@ -1,1 +1,859 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wyatt's Bay Blades | Lawn Care & Landscaping</title>
+<meta name="description" content="Wyatt's Bay Blades provides professional lawn care, mowing, landscaping, cleanups and property maintenance on Maryland's Eastern Shore.">
 
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #172117;
+    background: #f7f8f3;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: min(1120px, 92%);
+    margin: auto;
+}
+
+/* NAVIGATION */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: rgba(20, 32, 20, 0.96);
+    backdrop-filter: blur(10px);
+    color: white;
+}
+
+.nav {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.logo-mark {
+    width: 43px;
+    height: 43px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: #7ab648;
+    color: white;
+    font-size: 22px;
+}
+
+.nav-links {
+    display: flex;
+    gap: 28px;
+    align-items: center;
+    font-size: 15px;
+}
+
+.nav-links a:hover {
+    color: #9bd36a;
+}
+
+.nav-button {
+    background: #7ab648;
+    padding: 11px 18px;
+    border-radius: 8px;
+    font-weight: 700;
+}
+
+.nav-button:hover {
+    background: #91c95f;
+    color: white !important;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 680px;
+    display: flex;
+    align-items: center;
+    background:
+        linear-gradient(120deg, rgba(13,28,14,.96), rgba(35,67,31,.82)),
+        radial-gradient(circle at 75% 35%, #6c9847, transparent 32%),
+        linear-gradient(135deg, #172b17, #496e39);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero:after {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 50%;
+    right: -250px;
+    top: -120px;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 760px;
+}
+
+.badge {
+    display: inline-block;
+    background: rgba(122,182,72,.18);
+    border: 1px solid rgba(155,211,106,.45);
+    color: #b6df8d;
+    padding: 8px 14px;
+    border-radius: 100px;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 22px;
+}
+
+.hero h1 {
+    font-size: clamp(44px, 7vw, 78px);
+    line-height: .98;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #8fc95b;
+}
+
+.hero p {
+    font-size: 20px;
+    max-width: 650px;
+    color: #dce7d8;
+    margin-bottom: 35px;
+}
+
+.buttons {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-block;
+    padding: 15px 24px;
+    border-radius: 8px;
+    font-weight: 800;
+    transition: .2s;
+}
+
+.btn-primary {
+    background: #7ab648;
+    color: white;
+}
+
+.btn-primary:hover {
+    background: #91c95f;
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    border: 1px solid rgba(255,255,255,.4);
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: #172117;
+}
+
+/* STATS */
+
+.stats {
+    background: white;
+    border-bottom: 1px solid #e4e8df;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+}
+
+.stat {
+    padding: 28px 15px;
+}
+
+.stat strong {
+    display: block;
+    font-size: 25px;
+    color: #426d2d;
+}
+
+.stat span {
+    color: #697265;
+    font-size: 14px;
+}
+
+/* SECTIONS */
+
+section {
+    padding: 90px 0;
+}
+
+.section-label {
+    color: #5c9137;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 800;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.section-title {
+    font-size: clamp(34px, 5vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -1.5px;
+    margin-bottom: 18px;
+}
+
+.section-text {
+    color: #657063;
+    max-width: 680px;
+    font-size: 17px;
+}
+
+/* SERVICES */
+
+.services {
+    background: #f7f8f3;
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-top: 45px;
+}
+
+.card {
+    background: white;
+    padding: 32px;
+    border-radius: 15px;
+    border: 1px solid #e4e8df;
+    box-shadow: 0 8px 30px rgba(30,50,25,.05);
+    transition: .2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(30,50,25,.10);
+}
+
+.icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 12px;
+    display: grid;
+    place-items: center;
+    background: #eaf4e2;
+    font-size: 25px;
+    margin-bottom: 22px;
+}
+
+.card h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #6a7467;
+}
+
+/* ABOUT */
+
+.about {
+    background: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.about-box {
+    min-height: 430px;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at 70% 30%, #8ebd62, transparent 20%),
+        linear-gradient(145deg, #1b351b, #527d3b);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: flex-end;
+    padding: 30px;
+    color: white;
+}
+
+.about-box:before {
+    content: "🌿";
+    position: absolute;
+    font-size: 180px;
+    opacity: .15;
+    right: 20px;
+    top: 60px;
+}
+
+.about-box-content {
+    position: relative;
+    z-index: 2;
+}
+
+.about-box strong {
+    font-size: 30px;
+    display: block;
+}
+
+.check-list {
+    list-style: none;
+    margin-top: 28px;
+}
+
+.check-list li {
+    margin: 14px 0;
+    font-weight: 600;
+}
+
+.check-list li:before {
+    content: "✓";
+    display: inline-grid;
+    place-items: center;
+    width: 25px;
+    height: 25px;
+    background: #e8f4df;
+    color: #4f8730;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* PROCESS */
+
+.process {
+    background: #eef3e9;
+}
+
+.process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    margin-top: 45px;
+}
+
+.process-step {
+    position: relative;
+}
+
+.number {
+    font-size: 50px;
+    font-weight: 900;
+    color: #a9c995;
+    line-height: 1;
+    margin-bottom: 15px;
+}
+
+.process-step h3 {
+    margin-bottom: 8px;
+    font-size: 21px;
+}
+
+.process-step p {
+    color: #667061;
+}
+
+/* CTA */
+
+.cta {
+    background: #172b17;
+    color: white;
+    text-align: center;
+}
+
+.cta h2 {
+    font-size: clamp(35px, 5vw, 55px);
+    line-height: 1.05;
+    margin-bottom: 18px;
+}
+
+.cta p {
+    color: #cbd9c6;
+    max-width: 620px;
+    margin: 0 auto 30px;
+    font-size: 18px;
+}
+
+/* CONTACT */
+
+.contact {
+    background: white;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.contact-card {
+    border: 1px solid #e1e6dc;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.contact-item {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+    margin: 22px 0;
+}
+
+.contact-item-icon {
+    width: 42px;
+    height: 42px;
+    background: #eaf4e2;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+}
+
+.contact-item strong {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.contact-item span {
+    color: #667061;
+}
+
+/* FOOTER */
+
+footer {
+    background: #0e1b0e;
+    color: #bfcbbb;
+    padding: 35px 0;
+}
+
+.footer-inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    align-items: center;
+}
+
+.footer-brand {
+    color: white;
+    font-weight: 800;
+}
+
+.footer-links {
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+}
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+    .nav {
+        min-height: 68px;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stat {
+        padding: 18px;
+    }
+
+    .service-grid,
+    .process-grid,
+    .about-grid,
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-grid {
+        gap: 35px;
+    }
+
+    .about-box {
+        min-height: 330px;
+    }
+
+    section {
+        padding: 65px 0;
+    }
+
+    .footer-inner {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="container nav">
+        <a href="#" class="logo">
+            <div class="logo-mark">🌿</div>
+            <span>Wyatt's Bay Blades</span>
+        </a>
+
+        <nav class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#process">How It Works</a>
+            <a href="#contact">Contact</a>
+            <a class="nav-button" href="tel:+14437587953">Get a Quote</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+
+<section class="hero">
+    <div class="container">
+        <div class="hero-content">
+            <div class="badge">MARYLAND'S EASTERN SHORE</div>
+
+            <h1>
+                Your property.<br>
+                <span>Our craftsmanship.</span>
+            </h1>
+
+            <p>
+                Reliable lawn care and landscaping services built around
+                quality work, attention to detail, and keeping your property
+                looking its best.
+            </p>
+
+            <div class="buttons">
+                <a href="tel:+14437587953" class="btn btn-primary">Call for a Free Quote</a>
+                <a href="#services" class="btn btn-outline">View Our Services</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="stats">
+    <div class="container stats-grid">
+        <div class="stat">
+            <strong>Reliable</strong>
+            <span>Dependable property care</span>
+        </div>
+
+        <div class="stat">
+            <strong>Professional</strong>
+            <span>Attention to every detail</span>
+        </div>
+
+        <div class="stat">
+            <strong>Local</strong>
+            <span>Proudly serving the Eastern Shore</span>
+        </div>
+    </div>
+</div>
+
+<section id="services" class="services">
+    <div class="container">
+
+        <div class="section-label">What We Do</div>
+
+        <h2 class="section-title">
+            Lawn care that makes<br>
+            your property stand out.
+        </h2>
+
+        <p class="section-text">
+            From routine mowing to larger landscaping projects, Wyatt's Bay
+            Blades provides dependable property maintenance with professional
+            results.
+        </p>
+
+        <div class="service-grid">
+
+            <div class="card">
+                <div class="icon">🌱</div>
+                <h3>Lawn Mowing</h3>
+                <p>
+                    Consistent mowing, trimming, edging and blowing to keep
+                    your lawn clean and sharp.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🌳</div>
+                <h3>Landscaping</h3>
+                <p>
+                    Landscape bed cleanups, mulch, planting, shrub work and
+                    property improvements.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">✂️</div>
+                <h3>Shrub & Trimming</h3>
+                <p>
+                    Professional shrub trimming and cleanup to keep your
+                    landscape looking maintained.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🪨</div>
+                <h3>Gravel & Weed Control</h3>
+                <p>
+                    Gravel driveway and landscape-area cleanup and weed
+                    management solutions.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🍂</div>
+                <h3>Property Cleanups</h3>
+                <p>
+                    Seasonal and one-time cleanups to get overgrown or
+                    neglected areas back in shape.
+                </p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏡</div>
+                <h3>Custom Projects</h3>
+                <p>
+                    Have a property project in mind? Let's talk about what
+                    you need and build a plan together.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section id="about" class="about">
+    <div class="container about-grid">
+
+        <div class="about-box">
+            <div class="about-box-content">
+                <strong>Wyatt's Bay Blades</strong>
+                <span>Local lawn care & landscaping</span>
+            </div>
+        </div>
+
+        <div>
+            <div class="section-label">Why Choose Us</div>
+
+            <h2 class="section-title">
+                Small business service.<br>
+                Big attention to detail.
+            </h2>
+
+            <p class="section-text">
+                We believe your property deserves more than someone simply
+                showing up and cutting the grass. Every job is approached
+                with pride, communication and attention to the details that
+                make a property look its best.
+            </p>
+
+            <ul class="check-list">
+                <li>Reliable scheduling and communication</li>
+                <li>Professional, detail-oriented work</li>
+                <li>Residential property maintenance</li>
+                <li>One-time and recurring services</li>
+                <li>Free quotes for your project</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<section id="process" class="process">
+    <div class="container">
+
+        <div class="section-label">Simple Process</div>
+
+        <h2 class="section-title">
+            Getting your property<br>
+            taken care of is easy.
+        </h2>
+
+        <div class="process-grid">
+
+            <div class="process-step">
+                <div class="number">01</div>
+                <h3>Tell Us What You Need</h3>
+                <p>
+                    Give us a call or send us a message and tell us about
+                    your lawn or landscaping project.
+                </p>
+            </div>
+
+            <div class="process-step">
+                <div class="number">02</div>
+                <h3>Get Your Quote</h3>
+                <p>
+                    We'll look at the property and provide a straightforward
+                    quote for the work.
+                </p>
+            </div>
+
+            <div class="process-step">
+                <div class="number">03</div>
+                <h3>We Handle the Work</h3>
+                <p>
+                    Once you're ready, we'll take care of the project and
+                    leave your property looking its best.
+                </p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<section class="cta">
+    <div class="container">
+        <h2>Ready to improve your property?</h2>
+
+        <p>
+            Contact Wyatt's Bay Blades today for a free quote on lawn care,
+            landscaping, cleanups or your next outdoor project.
+        </p>
+
+        <div class="buttons" style="justify-content:center;">
+            <a href="tel:+14437587953" class="btn btn-primary">443-758-7953</a>
+            <a href="mailto:wyattsbayblades@gmail.com" class="btn btn-outline">
+                Email Us
+            </a>
+        </div>
+    </div>
+</section>
+
+<section id="contact" class="contact">
+    <div class="container">
+
+        <div class="section-label">Contact</div>
+
+        <h2 class="section-title">Let's get your property looking its best.</h2>
+
+        <div class="contact-grid">
+
+            <div class="contact-card">
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">📞</div>
+                    <div>
+                        <strong>Call or Text</strong>
+                        <span>443-758-7953</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">✉️</div>
+                    <div>
+                        <strong>Email</strong>
+                        <span>wyattsbayblades@gmail.com</span>
+                    </div>
+                </div>
+
+                <div class="contact-item">
+                    <div class="contact-item-icon">📍</div>
+                    <div>
+                        <strong>Service Area</strong>
+                        <span>Maryland's Eastern Shore</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="contact-card">
+                <h3 style="font-size:28px; margin-bottom:12px;">
+                    Request a Quote
+                </h3>
+
+                <p style="color:#687266; margin-bottom:25px;">
+                    Tell us what you're looking to have done and we'll be
+                    happy to discuss your project.
+                </p>
+
+                <a href="tel:+14437587953" class="btn btn-primary">
+                    Call Wyatt's Bay Blades
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<footer>
+    <div class="container footer-inner">
+        <div class="footer-brand">
+            Wyatt's Bay Blades
+        </div>
+
+        <div>
+            © 2026 Wyatt's Bay Blades. All rights reserved.
+        </div>
+
+        <div class="footer-links">
+            <a href="tel:+14437587953">Call</a>
+            <a href="mailto:wyattsbayblades@gmail.com">Email</a>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
