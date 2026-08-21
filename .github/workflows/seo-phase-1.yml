@@ -1,0 +1,92 @@
+name: Phase 1 SEO
+
+on:
+  push:
+    branches:
+      - seo-phase-1
+
+permissions:
+  contents: write
+
+jobs:
+  seo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Add SEO metadata and structured data
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          marker = '<meta name="description" content="Wyatt\'s Bay Blades provides lawn care, landscaping, lawn restoration and property maintenance throughout Maryland\'s Eastern Shore.">'
+
+          seo = '''
+          <link rel="canonical" href="https://wyattsbayblades.github.io/wyatts-bay-blades/">
+          <meta name="robots" content="index, follow, max-image-preview:large">
+          <meta name="theme-color" content="#07182e">
+          <meta property="og:type" content="website">
+          <meta property="og:site_name" content="Wyatt's Bay Blades">
+          <meta property="og:title" content="Wyatt's Bay Blades | Lawn Care & Landscaping">
+          <meta property="og:description" content="Professional lawn care, landscaping, lawn restoration and property maintenance across Maryland's Eastern Shore.">
+          <meta property="og:url" content="https://wyattsbayblades.github.io/wyatts-bay-blades/">
+          <meta property="og:image" content="https://wyattsbayblades.github.io/wyatts-bay-blades/hero-background.jpg">
+          <meta name="twitter:card" content="summary_large_image">
+          <meta name="twitter:title" content="Wyatt's Bay Blades | Lawn Care & Landscaping">
+          <meta name="twitter:description" content="Professional lawn care, landscaping, lawn restoration and property maintenance across Maryland's Eastern Shore.">
+          <meta name="twitter:image" content="https://wyattsbayblades.github.io/wyatts-bay-blades/hero-background.jpg">
+
+          <script type="application/ld+json">
+          {
+            "@context": "https://schema.org",
+            "@type": "LandscapingBusiness",
+            "name": "Wyatt's Bay Blades",
+            "url": "https://wyattsbayblades.github.io/wyatts-bay-blades/",
+            "telephone": "+1-443-758-7953",
+            "email": "wyattsbayblades@gmail.com",
+            "description": "Professional lawn care, landscaping, lawn restoration and property maintenance across Maryland's Eastern Shore.",
+            "image": "https://wyattsbayblades.github.io/wyatts-bay-blades/hero-background.jpg",
+            "priceRange": "$$",
+            "areaServed": [
+              {"@type":"AdministrativeArea","name":"Queen Anne's County, Maryland"},
+              {"@type":"AdministrativeArea","name":"Kent County, Maryland"},
+              {"@type":"AdministrativeArea","name":"Talbot County, Maryland"},
+              {"@type":"AdministrativeArea","name":"Caroline County, Maryland"}
+            ],
+            "sameAs": [
+              "https://www.facebook.com/WyattsBayBlades/"
+            ],
+            "hasOfferCatalog": {
+              "@type": "OfferCatalog",
+              "name": "Landscaping and Lawn Care Services",
+              "itemListElement": [
+                {"@type":"Offer","itemOffered":{"@type":"Service","name":"Lawn Mowing & Maintenance"}},
+                {"@type":"Offer","itemOffered":{"@type":"Service","name":"Lawn Restoration"}},
+                {"@type":"Offer","itemOffered":{"@type":"Service","name":"Landscape Bed Cleanup"}},
+                {"@type":"Offer","itemOffered":{"@type":"Service","name":"Mulch & Soil Work"}},
+                {"@type":"Offer","itemOffered":{"@type":"Service","name":"Property Cleanup"}},
+                {"@type":"Offer","itemOffered":{"@type":"Service","name":"Seasonal Property Services"}}
+              ]
+            }
+          }
+          </script>
+          '''
+
+          if 'rel="canonical"' not in s:
+              s = s.replace(marker, marker + '\n' + seo, 1)
+              p.write_text(s, encoding='utf-8')
+          else:
+              print('SEO metadata already present; no changes needed.')
+          PY
+
+      - name: Commit SEO changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Add local SEO metadata and structured data"
+          git push

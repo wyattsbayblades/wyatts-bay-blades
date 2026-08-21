@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://wyattsbayblades.github.io/wyatts-bay-blades/sitemap.xml
