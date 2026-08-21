@@ -1,0 +1,93 @@
+name: Integrate Phase 2 navigation
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  integrate:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Integrate service navigation without replacing homepage
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import re
+
+          p = Path('index.html')
+          s = p.read_text(encoding='utf-8')
+
+          # Add only the dropdown CSS, preserving all existing homepage CSS.
+          if '.services-menu {' not in s:
+              marker = '.menu {\n  display:none;\n  color:#fff;\n  font-size:28px;\n  background:none;\n  border:0;\n  cursor:pointer;\n}'
+              css = '''\n\n/* Phase 2 service navigation */\n.services-menu { position:relative; }\n.services-menu > .services-toggle { cursor:pointer; }\n.services-dropdown {\n  display:none;\n  position:absolute;\n  top:calc(100% + 14px);\n  left:50%;\n  transform:translateX(-50%);\n  min-width:270px;\n  padding:8px;\n  background:#07182e;\n  border-top:3px solid var(--blue);\n  box-shadow:0 16px 35px rgba(0,0,0,.30);\n  z-index:100;\n}\n.services-menu:hover .services-dropdown,\n.services-menu:focus-within .services-dropdown { display:block; }\n.services-dropdown a {\n  display:block;\n  color:#fff;\n  padding:10px 12px;\n  font-size:12px;\n  font-weight:800;\n  text-transform:uppercase;\n  border-bottom:1px solid rgba(255,255,255,.09);\n}\n.services-dropdown a:last-child { border-bottom:0; }\n.services-dropdown a:hover { background:rgba(22,136,248,.18); color:#fff; }\n@media(max-width:820px) {\n  .services-menu { width:100%; text-align:center; }\n  .services-dropdown {\n    position:static;\n    transform:none;\n    width:min(300px,90vw);\n    margin:4px auto 0;\n    box-shadow:none;\n    border-top:0;\n    background:#0c2748;\n  }\n  .services-menu:hover .services-dropdown { display:none; }\n  .services-menu.open .services-dropdown { display:block; }\n}\n'''
+              if marker not in s:
+                  raise SystemExit('Could not find original menu CSS marker; stopping safely.')
+              s = s.replace(marker, marker + css, 1)
+
+          # Replace only the existing Services nav item.
+          old_nav = '<a href="#services">Services</a>'
+          new_nav = '''<div class="services-menu">\n<a class="services-toggle" href="#services">Services ▾</a>\n<div class="services-dropdown">\n<a href="services/lawn-care/">Lawn Care &amp; Mowing</a>\n<a href="services/landscaping/">Landscaping</a>\n<a href="services/garden-bed-cleanup/">Garden Bed Cleanup</a>\n<a href="services/mulch-installation/">Mulch Installation</a>\n<a href="services/yard-cleanup/">Yard Cleanup</a>\n<a href="services/lawn-restoration/">Lawn Restoration</a>\n<a href="services/aeration-overseeding/">Aeration &amp; Overseeding</a>\n<a href="services/commercial-property-maintenance/">Commercial Property Maintenance</a>\n</div>\n</div>'''
+          if old_nav in s and 'class="services-menu"' not in s:
+              s = s.replace(old_nav, new_nav, 1)
+
+          # Add Learn More links to the existing six service cards without altering their copy.
+          links = {
+              'Lawn Mowing & Maintenance':'services/lawn-care/',
+              'Lawn Restoration':'services/lawn-restoration/',
+              'Landscape Beds':'services/landscaping/',
+              'Property Cleanups':'services/yard-cleanup/',
+              'Mulch & Soil Work':'services/mulch-installation/',
+              'Seasonal Services':'services/yard-cleanup/'
+          }
+          for heading, url in links.items():
+              pattern = rf'(<h3>\s*{re.escape(heading)}\s*</h3>\s*<p>.*?</p>)(\s*</article>)'
+              repl = rf'\1\n\n<a class="service-learn" href="{url}">Learn More →</a>\2'
+              s, n = re.subn(pattern, repl, s, count=1, flags=re.S)
+              if n == 0 and 'class="service-learn"' not in s:
+                  raise SystemExit(f'Could not safely locate service card: {heading}')
+
+          # Add styling for the new card links.
+          if '.service-learn {' not in s:
+              marker = '.service p {\n  color:var(--muted);\n}'
+              extra = '''\n\n.service-learn {\n  display:inline-block;\n  margin-top:15px;\n  color:var(--blue2);\n  font-size:12px;\n  font-weight:900;\n  text-transform:uppercase;\n}\n.service-learn:hover { color:var(--blue); }\n'''
+              if marker not in s:
+                  raise SystemExit('Could not find service paragraph CSS marker; stopping safely.')
+              s = s.replace(marker, marker + extra, 1)
+
+          # Mobile submenu toggle; existing hamburger/menu code remains untouched.
+          if 'services-toggle' in s and 'services-menu"' in s and 'services-menu.open' in s and 'services-toggle-mobile' not in s:
+              script_marker = '/* =========================================================\n   MOBILE MENU\n========================================================= */'
+              js = '''\n/* Phase 2 services submenu on mobile */\nconst servicesToggle = document.querySelector('.services-toggle');\nconst servicesMenu = document.querySelector('.services-menu');\nif (servicesToggle && servicesMenu) {\n  servicesToggle.addEventListener('click', (event) => {\n    if (window.innerWidth <= 820) {\n      event.preventDefault();\n      servicesMenu.classList.toggle('open');\n    }\n  });\n}\n\n'''
+              if script_marker not in s:
+                  raise SystemExit('Could not find mobile menu script marker; stopping safely.')
+              s = s.replace(script_marker, js + script_marker, 1)
+
+          p.write_text(s, encoding='utf-8')
+          PY
+
+      - name: Validate homepage
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          s=Path('index.html').read_text(encoding='utf-8')
+          required=['ChatGPT Image Aug 11, 2026 at 01_48_21 AM.png','class="menu"','id="galleryViewer"','id="map"','class="services-menu"','services/lawn-care/']
+          missing=[x for x in required if x not in s]
+          if missing: raise SystemExit('Validation failed: '+', '.join(missing))
+          print('Homepage preservation/integration validation passed.')
+          PY
+
+      - name: Commit integration
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html
+          git diff --cached --quiet || git commit -m "Integrate Phase 2 service navigation"
+          git push
