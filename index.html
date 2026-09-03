@@ -2610,7 +2610,7 @@ f
 Facebook
 </strong>
 
-<a
+
 href="https://www.facebook.com/WyattsBayBlades/"
 target="_blank"
 >
@@ -2876,7 +2876,7 @@ Contact
 wyattsbayblades@gmail.com
 </a>
 
-<a
+
 href="https://www.facebook.com/WyattsBayBlades/"
 target="_blank"
 >
@@ -3190,11 +3190,18 @@ showProject(0);
 
 /* =========================================================
    MAP
+
+   CORRECTED. The previous coordinates had six of nine towns
+   in the wrong place — Grasonville was plotted in Anne
+   Arundel County on the western shore, and St. Michaels was
+   in open water. The service-area polygon has also been
+   redrawn to follow the Eastern Shore coastline instead of
+   covering the Chesapeake Bay.
 ========================================================= */
 
 const map =
-  L.map("map").setView(
-    [38.78,-76.25],
+  L.map("map", { scrollWheelZoom:false }).setView(
+    [38.95,-76.05],
     9
   );
 
@@ -3210,21 +3217,21 @@ L.tileLayer(
 
 const primary = [
 
-  [38.97,-76.25,"Chestertown"],
-  [38.92,-76.23,"Centreville"],
-  [38.78,-76.07,"Easton"],
-  [38.97,-76.33,"Church Hill"],
-  [38.80,-76.64,"Grasonville"],
-  [38.98,-76.33,"Stevensville"]
+  [39.2093,-76.0666,"Chestertown"],
+  [39.0426,-76.0663,"Centreville"],
+  [38.7743,-76.0763,"Easton"],
+  [39.1443,-75.9799,"Church Hill"],
+  [38.9540,-76.2038,"Grasonville"],
+  [38.9812,-76.3172,"Stevensville"]
 
 ];
 
 
 const extra = [
 
-  [38.98,-76.49,"Annapolis"],
-  [38.68,-76.08,"Cambridge"],
-  [38.56,-76.62,"St. Michaels"]
+  [38.9784,-76.4922,"Annapolis"],
+  [38.5632,-76.0788,"Cambridge"],
+  [38.7851,-76.2233,"St. Michaels"]
 
 ];
 
@@ -3281,14 +3288,17 @@ extra.forEach(
 
 const area = [
 
-  [39.10,-76.75],
-  [39.08,-76.05],
-  [39.00,-75.80],
-  [38.65,-75.78],
-  [38.42,-76.55],
-  [38.50,-76.85],
-  [38.70,-76.82],
-  [39.10,-76.75]
+  [39.37,-75.79],
+  [39.37,-76.00],
+  [39.22,-76.20],
+  [39.13,-76.30],
+  [38.97,-76.36],
+  [38.82,-76.37],
+  [38.72,-76.33],
+  [38.68,-76.20],
+  [38.60,-76.13],
+  [38.62,-75.80],
+  [39.37,-75.79]
 
 ];
 
